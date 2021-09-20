@@ -21,6 +21,10 @@ export default meta;
 
 const Template: Story = () => (
   <BlogPost
+    tagsPos="middle"
+    desPy={0.5}
+    contentPx={1}
+    titlePx={0.3}
     btnWeight={700}
     btnFSize={1.1}
     titleLength={45}
@@ -31,7 +35,7 @@ const Template: Story = () => (
     fnSize={1.2}
     desLength={100}
     btnPx={2}
-    btnPy={0.6}
+    btnPy={0.5}
     btnText="white"
     btnColor="black"
     button="Read More"
