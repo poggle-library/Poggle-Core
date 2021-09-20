@@ -27,8 +27,8 @@ const Template: Story = () => (
     btnWeight={700}
     btnFSize={1.1}
     titleLength={45}
-    // cardTags={['hi', 'mate', 'html and css', 'booba', 'chicken']}
-    // tagsPos="middle"
+    cardTags={['hi', 'mate', 'html and css', 'booba', 'chicken']}
+    tagsPos="middle"
     cardShadow
     btnLength={10}
     cardRadius={1}

@@ -25,8 +25,12 @@ export interface BlogProps {
   btnText: string;
   btnPx?: number;
   btnPy?: number;
+  btnMx?: number;
+  btnMy?: number;
+  btnBorder?: string;
+  btnBorderCol?: string;
   btnLength?: number;
-  btnFSize?: number;
+  btnFnSize?: number;
   btnWeight?: number;
   btnPos?: string;
   location?: string;
@@ -61,8 +65,12 @@ export const BlogPost: React.FC<BlogProps> = ({
   btnText,
   btnPx,
   btnPy,
+  btnMx,
+  btnMy,
+  btnBorder,
+  btnBorderCol,
   btnLength,
-  btnFSize,
+  btnFnSize,
   btnWeight,
   btnPos,
   location,
@@ -183,10 +191,10 @@ export const BlogPost: React.FC<BlogProps> = ({
         <h1
           style={{
             display: 'flex',
-            marginTop: titlePx ? titlePx + 'rem' : '0px',
-            marginBottom: titlePx ? titlePx + 'rem' : '0px',
-            marginLeft: titlePy ? titlePy + 'rem' : '0px',
-            marginRight: titlePy ? titlePy + 'rem' : '0px',
+            marginTop: titlePy ? titlePy + 'rem' : '0px',
+            marginBottom: titlePy ? titlePy + 'rem' : '0px',
+            marginLeft: titlePx ? titlePx + 'rem' : '0px',
+            marginRight: titlePx ? titlePx + 'rem' : '0px',
             fontFamily: cardFont ? cardFont : 'Arial',
             //@ts-ignore
             textAlign: titleAlign ? titleAlign : 'left',
@@ -247,9 +255,15 @@ export const BlogPost: React.FC<BlogProps> = ({
                 color: btnText,
                 width: btnLength ? `${btnLength}rem` : '100%',
                 cursor: 'pointer',
-                fontSize: `${btnFSize ? btnFSize + 'rem' : '1rem'}`,
+                fontSize: `${btnFnSize ? btnFnSize + 'rem' : '1rem'}`,
                 fontWeight: btnWeight ? btnWeight : 'normal',
                 fontFamily: cardFont ? cardFont : 'Arial',
+                marginTop: btnMy ? btnMy + 'rem' : '0px',
+                marginBottom: btnMy ? btnMy + 'rem' : '0px',
+                marginLeft: btnMx ? btnMx + 'rem' : '0px',
+                marginRight: btnMx ? btnMx + 'rem' : '0px',
+                border: btnBorder ? btnBorder : 'none',
+                borderColor: btnBorderCol ? btnBorderCol : 'none',
               }}
               onClick={() => console.log(location)}
             >
