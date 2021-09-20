@@ -83,10 +83,6 @@ export const BlogPost: React.FC<BlogProps> = ({
     return text.slice(0, charLength).concat('...');
   };
 
-  if (tagsPos === undefined) {
-    tagsPos = 'bottom';
-  }
-
   if (cardTags === undefined) {
     cardTags = [''];
   }
@@ -263,6 +259,20 @@ export const BlogPost: React.FC<BlogProps> = ({
         )}
         {/*card tags option*/}
         {tagsPos === 'bottom' && (
+          <div
+            style={{
+              display: 'flex',
+              gap: '0.4rem',
+              marginTop: tagsPy ? tagsPy + 'rem' : '0px',
+              marginBottom: tagsPy ? tagsPy + 'rem' : '0px',
+              marginLeft: tagsPx ? tagsPx + 'rem' : '0px',
+              marginRight: tagsPx ? tagsPx + 'rem' : '0px',
+            }}
+          >
+            {renderTags(cardTags)}
+          </div>
+        )}
+        {!tagsPos && cardTags && (
           <div
             style={{
               display: 'flex',
