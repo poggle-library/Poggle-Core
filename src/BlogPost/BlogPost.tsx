@@ -108,8 +108,8 @@ export const BlogPost: React.FC<BlogProps> = ({
     <div
       style={{
         backgroundColor: cardColor ? cardColor : 'white',
-        width: `${width ? width : 25}rem`,
-        height: `${height ? height : 'auto'}rem`,
+        width: width ? width + 'rem' : '25rem',
+        height: height ? height + 'rem' : 'auto',
         borderRadius: `${cardRadius ? cardRadius + 'rem' : '1rem'}`,
         boxShadow: cardShadow
           ? '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
@@ -122,7 +122,7 @@ export const BlogPost: React.FC<BlogProps> = ({
         alt="blog-post"
         style={{
           width: '100%',
-          height: `${imgHeight ? imgHeight + 'rem' : '15rem'}`,
+          height: imgHeight ? imgHeight + 'rem' : '15rem',
           objectFit: 'cover',
           borderRadius: `${
             cardRadius
@@ -178,7 +178,7 @@ export const BlogPost: React.FC<BlogProps> = ({
         {/*card description*/}
         <p
           style={{
-            fontSize: `${fnSize ? fnSize + 'rem' : '1rem'}`,
+            fontSize: fnSize ? fnSize + 'rem' : '1rem',
             marginTop: '-0.8rem',
             padding: '0.5rem 0',
           }}
@@ -197,7 +197,7 @@ export const BlogPost: React.FC<BlogProps> = ({
               color: btnText,
               width: btnLength ? `${btnLength}rem` : '100%',
               cursor: 'pointer',
-              fontSize: `${btnFSize ? btnFSize + 'rem' : '1rem'}`,
+              fontSize: btnFSize ? btnFSize + 'rem' : '1rem',
               fontWeight: btnWeight ? btnWeight : 'normal',
               fontFamily: cardFont ? cardFont : 'Arial',
             }}
