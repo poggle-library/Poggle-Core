@@ -21,6 +21,7 @@ export default meta;
 
 const Template: Story = () => (
   <BlogPost
+    cardTags={['hi', 'mate', 'html and css', 'booba', 'chicken']}
     cardShadow
     btnLength={10}
     cardRadius={1}
