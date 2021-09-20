@@ -21,14 +21,14 @@ export default meta;
 
 const Template: Story = () => (
   <BlogPost
-    tagsPos="middle"
     desPy={0.5}
     contentPx={1}
     titlePx={0.3}
     btnWeight={700}
     btnFSize={1.1}
     titleLength={45}
-    cardTags={['hi', 'mate', 'html and css', 'booba', 'chicken']}
+    // cardTags={['hi', 'mate', 'html and css', 'booba', 'chicken']}
+    // tagsPos="middle"
     cardShadow
     btnLength={10}
     cardRadius={1}

@@ -272,7 +272,7 @@ export const BlogPost: React.FC<BlogProps> = ({
             {renderTags(cardTags)}
           </div>
         )}
-        {!tagsPos && cardTags && (
+        {!tagsPos && cardTags.length > 1 && (
           <div
             style={{
               display: 'flex',
