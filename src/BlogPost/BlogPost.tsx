@@ -20,6 +20,12 @@ export interface BlogProps {
   cardColor?: string;
   cardTags?: Array<string>;
   tagWeight?: number;
+  tagsPos?: string;
+  imgHeight?: number;
+  titleLength?: number;
+  btnFSize?: number;
+  btnWeight?: number;
+  cardFont?: string;
 }
 
 export const BlogPost: React.FC<BlogProps> = ({
@@ -28,6 +34,7 @@ export const BlogPost: React.FC<BlogProps> = ({
   height,
   image,
   title,
+  titleLength,
   description,
   desLength,
   button,
@@ -42,11 +49,61 @@ export const BlogPost: React.FC<BlogProps> = ({
   cardColor,
   cardTags,
   tagWeight,
+  tagsPos,
+  imgHeight,
+  btnFSize,
+  btnWeight,
+  cardFont,
 }) => {
   const textTrimmer = (text: string, charLength: number) => {
     return text.slice(0, charLength).concat('...');
   };
 
+  if (tagsPos === undefined) {
+    tagsPos = 'bottom';
+  }
+
+  if (cardTags === undefined) {
+    cardTags = [''];
+  }
+
+  const renderTags = (tags: Array<string>) => {
+    if (tags !== undefined) {
+      return (
+        <>
+          {tags.slice(0, 4).map((tag, index) => {
+            return (
+              <div
+                key={index}
+                style={{ display: 'flex', alignItems: 'center' }}
+              >
+                <h1
+                  style={{
+                    padding: '0.2rem 1rem',
+                    backgroundColor: 'lightgray',
+                    width: '100%',
+                    borderRadius: '0.5rem',
+                    color: 'black',
+                    textTransform: 'capitalize',
+                    fontSize: '1rem',
+                    fontWeight: tagWeight ? tagWeight : 'normal',
+                    fontFamily: cardFont ? cardFont : 'Arial',
+                  }}
+                >
+                  {tag}
+                </h1>
+              </div>
+            );
+          })}
+        </>
+      );
+    } else {
+      return null;
+    }
+  };
+
+  // @ts-ignore
+  // @ts-ignore
   return (
     <div
       style={{
@@ -57,6 +114,7 @@ export const BlogPost: React.FC<BlogProps> = ({
         boxShadow: cardShadow
           ? '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
           : '',
+        cursor: 'pointer',
       }}
     >
       <img
@@ -64,7 +122,7 @@ export const BlogPost: React.FC<BlogProps> = ({
         alt="blog-post"
         style={{
           width: '100%',
-          height: '15rem',
+          height: `${imgHeight ? imgHeight + 'rem' : '15rem'}`,
           objectFit: 'cover',
           borderRadius: `${
             cardRadius
@@ -80,10 +138,51 @@ export const BlogPost: React.FC<BlogProps> = ({
           flexDirection: 'column',
         }}
       >
+        {/*card tags option*/}
+        {tagsPos === 'top' && (
+          <div
+            style={{
+              display: 'flex',
+              gap: '0.4rem',
+              margin: '1rem 0',
+            }}
+          >
+            {renderTags(cardTags)}
+          </div>
+        )}
         {/*card title*/}
-        <h1>{title}</h1>
+        <h1
+          style={{
+            display: 'flex',
+            marginTop: '1rem',
+            fontFamily: cardFont ? cardFont : 'Arial',
+          }}
+        >
+          {titleLength && title.length > titleLength
+            ? textTrimmer(title, titleLength)
+            : titleLength}
+          {!titleLength && title}
+        </h1>
+        {/*card tags option*/}
+        {tagsPos === 'middle' && (
+          <div
+            style={{
+              display: 'flex',
+              gap: '0.4rem',
+              margin: '1rem 0',
+            }}
+          >
+            {renderTags(cardTags)}
+          </div>
+        )}
         {/*card description*/}
-        <p style={{ fontSize: `${fnSize ? fnSize + 'rem' : '1rem'}` }}>
+        <p
+          style={{
+            fontSize: `${fnSize ? fnSize + 'rem' : '1rem'}`,
+            marginTop: '-0.8rem',
+            padding: '0.5rem 0',
+          }}
+        >
           {description.length > desLength
             ? textTrimmer(description, desLength)
             : description}
@@ -97,6 +196,10 @@ export const BlogPost: React.FC<BlogProps> = ({
               borderRadius: '10px',
               color: btnText,
               width: btnLength ? `${btnLength}rem` : '100%',
+              cursor: 'pointer',
+              fontSize: `${btnFSize ? btnFSize + 'rem' : '1rem'}`,
+              fontWeight: btnWeight ? btnWeight : 'normal',
+              fontFamily: cardFont ? cardFont : 'Arial',
             }}
             onClick={() => console.log(location)}
           >
@@ -104,7 +207,7 @@ export const BlogPost: React.FC<BlogProps> = ({
           </button>
         )}
         {/*card tags option*/}
-        {cardTags && (
+        {tagsPos === 'bottom' && (
           <div
             style={{
               display: 'flex',
@@ -112,29 +215,7 @@ export const BlogPost: React.FC<BlogProps> = ({
               margin: '1rem 0',
             }}
           >
-            {cardTags.slice(0, 4).map((tag, index) => {
-              return (
-                <div
-                  key={index}
-                  style={{ display: 'flex', alignItems: 'center' }}
-                >
-                  <h1
-                    style={{
-                      padding: '0.2rem 1rem',
-                      backgroundColor: 'lightgray',
-                      width: '100%',
-                      borderRadius: '0.5rem',
-                      color: 'black',
-                      textTransform: 'capitalize',
-                      fontSize: '1rem',
-                      fontWeight: tagWeight ? tagWeight : 'normal',
-                    }}
-                  >
-                    {tag}
-                  </h1>
-                </div>
-              );
-            })}
+            {renderTags(cardTags)}
           </div>
         )}
       </div>
