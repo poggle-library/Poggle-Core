@@ -7,4 +7,9 @@ export const parameters = {
       order: ['Getting Started', 'Card'],
     },
   },
+  previewTabs: {
+    canvas: {
+      hidden: true,
+    },
+  },
 };

@@ -13,3 +13,18 @@ As it currently stands as of this version release there is only 1 component incl
 You can read our full docs [here.](https://ghostcrawl3r.github.io/poggle/?path=/story/getting-started-introduction--page)
 
 Please feel free to follow the project on GH. 
+
+
+## Install Poggle
+You can easily install Poggle from NPM or Yarn using the following commands in your terminal:
+
+##### NPM
+
+```
+npm install @Poggle/core
+```
+##### Yarn
+
+```
+yarn add @Poggle/core
+```
