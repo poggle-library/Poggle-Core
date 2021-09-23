@@ -1,1 +1,1 @@
-export * from './BlogPost/BlogPost'
+export * from './card/card.component';

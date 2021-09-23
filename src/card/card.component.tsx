@@ -1,6 +1,6 @@
 import React from 'react';
 
-export interface BlogProps {
+export interface CardProps {
   cardRadius?: number;
   cardShadow?: boolean;
   cardColor?: string;
@@ -9,7 +9,7 @@ export interface BlogProps {
   width?: number;
   height?: number;
   image?: string;
-  title: string;
+  title?: string;
   titleLength?: number;
   titleAlign?: string;
   titleSize?: number;
@@ -33,59 +33,61 @@ export interface BlogProps {
   btnFnSize?: number;
   btnWeight?: number;
   btnPos?: string;
-  location?: string;
   fnSize?: number;
   tagWeight?: number;
   tagsPos?: string;
   tagsPx?: number;
   tagsPy?: number;
+  tagsBgColor?: string;
+  tagsTxtColor?: string;
   imgHeight?: number;
   contentPx?: number;
   contentPy?: number;
 }
 
-export const BlogPost: React.FC<BlogProps> = ({
-  cardRadius,
-  cardShadow,
-  cardColor,
-  cardTags,
-  cardFont,
-  width,
-  height,
-  image,
-  title,
-  titleLength,
-  titleAlign,
-  titleSize,
-  description,
-  desAlign,
-  desLength,
-  button,
-  btnColor,
-  btnText,
-  btnPx,
-  btnPy,
-  btnMx,
-  btnMy,
-  btnBorder,
+export const Card: React.FC<CardProps> = ({
+  cardRadius = '0',
+  cardShadow = true,
+  cardColor = 'white',
+  cardTags = [],
+  cardFont = 'Roboto',
+  width = 25,
+  height = 'auto',
+  image = '',
+  title = undefined,
+  titleLength = undefined,
+  titleAlign = '',
+  titleSize = 35,
+  description = '',
+  desAlign = 'left',
+  desLength = 200,
+  button = '',
+  btnColor = 'black',
+  btnText = 'White',
+  btnPx = 2,
+  btnPy = 0.7,
+  btnMx = 0.5,
+  btnMy = 1,
+  btnBorder = 10,
   btnBorderCol,
-  btnLength,
-  btnFnSize,
-  btnWeight,
-  btnPos,
-  location,
-  fnSize,
-  tagWeight,
-  tagsPos,
+  btnLength = 10,
+  btnFnSize = 1,
+  btnWeight = 700,
+  btnPos = 'left',
+  fnSize = 1.2,
+  tagWeight = 400,
+  tagsPos = 'middle',
   imgHeight,
-  contentPx,
-  contentPy,
-  titlePx,
-  titlePy,
-  tagsPx,
-  tagsPy,
-  desPx,
-  desPy,
+  contentPx = 1,
+  contentPy = 1,
+  titlePx = 0.5,
+  titlePy = 0,
+  tagsPx = 0.5,
+  tagsPy = 0.5,
+  tagsBgColor = 'lightgray',
+  tagsTxtColor = 'black',
+  desPx = 0,
+  desPy = 0,
 }) => {
   const textTrimmer = (text: string, charLength: number) => {
     return text.slice(0, charLength).concat('...');
@@ -108,14 +110,14 @@ export const BlogPost: React.FC<BlogProps> = ({
                 <h1
                   style={{
                     padding: '0.2rem 1rem',
-                    backgroundColor: 'lightgray',
+                    backgroundColor: tagsBgColor ? tagsBgColor : 'lightgray',
                     width: '100%',
                     borderRadius: '0.5rem',
-                    color: 'black',
+                    color: tagsTxtColor ? tagsTxtColor : 'black',
                     textTransform: 'capitalize',
                     fontSize: '1rem',
                     fontWeight: tagWeight ? tagWeight : 'normal',
-                    fontFamily: cardFont ? cardFont : 'Arial',
+                    fontFamily: cardFont ? cardFont : 'Roboto',
                   }}
                 >
                   {tag}
@@ -201,10 +203,9 @@ export const BlogPost: React.FC<BlogProps> = ({
             fontSize: titleSize ? titleSize : '2rem',
           }}
         >
-          {titleLength && title.length > titleLength
+          {title && titleLength && title.length > titleLength
             ? textTrimmer(title, titleLength)
-            : titleLength}
-          {!titleLength && title}
+            : title}
         </h1>
         {/*card tags option*/}
         {tagsPos === 'middle' && (
@@ -226,8 +227,8 @@ export const BlogPost: React.FC<BlogProps> = ({
           style={{
             fontSize: `${fnSize ? fnSize + 'rem' : '1rem'}`,
             marginTop: desPy ? desPy + 'rem' : '0px',
-            marginBottom: desPy ? desPy + 'rem' : '0px',
-            marginLeft: desPx ? desPx + 'rem' : '0px',
+            marginBottom: desPy ? desPy + 'rem' : '10px',
+            marginLeft: desPx ? desPx + 'rem' : '10px',
             marginRight: desPx ? desPx + 'rem' : '0px',
             //@ts-ignore
             textAlign: desAlign ? desAlign : 'left',
@@ -265,7 +266,6 @@ export const BlogPost: React.FC<BlogProps> = ({
                 border: btnBorder ? btnBorder : 'none',
                 borderColor: btnBorderCol ? btnBorderCol : 'none',
               }}
-              onClick={() => console.log(location)}
             >
               {button}
             </button>
