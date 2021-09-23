@@ -1890,7 +1890,7 @@
     "prop-types" "^15.7.2"
     "regenerator-runtime" "^0.13.7"
 
-"@storybook/addons@^6.3.0", "@storybook/addons@^6.3.8", "@storybook/addons@6.3.8":
+"@storybook/addons@^6.0.0", "@storybook/addons@^6.3.0", "@storybook/addons@^6.3.8", "@storybook/addons@6.3.8":
   "integrity" "sha512-TzYk1f/wvfoGDkLxXIx85ii5ED7IfGP/6eu00/i2Hyn4uGqdNi/ltSOJxnxa+DZv8KjYQRVAEo/Fbh95IEXI1Q=="
   "resolved" "https://registry.npmjs.org/@storybook/addons/-/addons-6.3.8.tgz"
   "version" "6.3.8"
@@ -1918,7 +1918,7 @@
     "global" "^4.3.2"
     "util-deprecate" "^1.0.2"
 
-"@storybook/api@^6.3.0", "@storybook/api@6.3.8":
+"@storybook/api@^6.0.0", "@storybook/api@^6.3.0", "@storybook/api@6.3.8":
   "integrity" "sha512-8b61KnWhN+sA+Gq+AHH3M4qM0L8pNS9DtdfPi5GUGWzOg6IZ1EgYVsk9afEwkNESxyZ+GM2O6mGu05J0HfyqNg=="
   "resolved" "https://registry.npmjs.org/@storybook/api/-/api-6.3.8.tgz"
   "version" "6.3.8"
@@ -2114,7 +2114,7 @@
     "core-js" "^3.8.2"
     "global" "^4.4.0"
 
-"@storybook/components@^6.3.0", "@storybook/components@6.3.8":
+"@storybook/components@^6.0.0", "@storybook/components@^6.3.0", "@storybook/components@6.3.8":
   "integrity" "sha512-zIvCk7MAL9z17EI58h7WE/TgFTm0njGwFkQrbXOgGkkKYoFt/yrrs8HqylcqBqfTivJNiXJNnmmx0ooJ83PIwA=="
   "resolved" "https://registry.npmjs.org/@storybook/components/-/components-6.3.8.tgz"
   "version" "6.3.8"
@@ -2248,7 +2248,7 @@
     "util-deprecate" "^1.0.2"
     "webpack" "4"
 
-"@storybook/core-events@^6.3.0", "@storybook/core-events@6.3.8":
+"@storybook/core-events@^6.0.0", "@storybook/core-events@^6.3.0", "@storybook/core-events@6.3.8":
   "integrity" "sha512-M3d2iX842YfopqmOHlXzL/Xy4fICzaRnet99GdfOqWjZhC2CVSemVk1b/vgfQv4MFYOQkSLsAjkbDH/kU8n9Aw=="
   "resolved" "https://registry.npmjs.org/@storybook/core-events/-/core-events-6.3.8.tgz"
   "version" "6.3.8"
@@ -2495,7 +2495,7 @@
     "prettier" "~2.2.1"
     "regenerator-runtime" "^0.13.7"
 
-"@storybook/theming@^6.3.0", "@storybook/theming@6.3.8":
+"@storybook/theming@^6.0.0", "@storybook/theming@^6.3.0", "@storybook/theming@6.3.8":
   "integrity" "sha512-Np51rvecnuHNevZ7Em0uElT5UkgASP5K2u8NpHcCxP/Hd73wxS/h//6XnjA9Aich7h/JanG71jAC3qqhZabatA=="
   "resolved" "https://registry.npmjs.org/@storybook/theming/-/theming-6.3.8.tgz"
   "version" "6.3.8"
@@ -6197,7 +6197,7 @@
   "resolved" "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz"
   "version" "2.0.1"
 
-"fast-deep-equal@^3.1.1", "fast-deep-equal@^3.1.3":
+"fast-deep-equal@^3.0.0", "fast-deep-equal@^3.1.1", "fast-deep-equal@^3.1.3":
   "integrity" "sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q=="
   "resolved" "https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz"
   "version" "3.1.3"
@@ -12310,6 +12310,14 @@
     "@storybook/components" "^6.3.0"
     "@storybook/core-events" "^6.3.0"
     "ts-dedent" "^2.1.1"
+
+"storybook-dark-mode@^1.0.8":
+  "integrity" "sha512-uY6yTSd1vYE0YwlON50u+iIoNF/fmMj59ww1cpd/naUcmOmCjwawViKFG5YjichwdR/yJ5ybWRUF0tnRQfaSiw=="
+  "resolved" "https://registry.npmjs.org/storybook-dark-mode/-/storybook-dark-mode-1.0.8.tgz"
+  "version" "1.0.8"
+  dependencies:
+    "fast-deep-equal" "^3.0.0"
+    "memoizerific" "^1.11.3"
 
 "stream-browserify@^2.0.1":
   "integrity" "sha512-nX6hmklHs/gr2FuxYDltq8fJA1GDlxKQCz8O/IM4atRqBH8OORmBNgfvW5gG10GT/qQ9u0CzIvr2X5Pkt6ntqg=="

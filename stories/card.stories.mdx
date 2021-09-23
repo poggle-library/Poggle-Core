@@ -1,7 +1,8 @@
 import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
 import { Card } from "../src";
 
-<Meta title="Components/Card" component={Card} argTypes={{
+<Meta title="Components/Cards" component={Card} argTypes={{
+  width: { control: {type: 'number'}},
     tagsBgColor: {
         control:'color',
     },
@@ -16,7 +17,24 @@ import { Card } from "../src";
     },
     btnText: {
         control:'color',
-    }
+    },
+  tagsPos: {
+    options: ['top', 'middle', 'bottom'],
+    control: {type: 'radio'}
+  },
+  cardShadow: {
+    options: ['true', 'false'],
+    control: {type: 'boolean'}
+  },
+  cardRadius: {
+    control: {type: 'range'}
+  },
+  titleSize: {
+    control: {type: 'range'}
+  },
+  desLength: {
+    control: {type: 'number'}
+  }
 }} />
 
 export const Template = (args) => <Card {...args}/>;
@@ -72,15 +90,15 @@ You can also limit the amount of characters a title can render using the `titleL
 </Canvas>
 
 # Card With Tags
-Within Poggle you can dynamically add tags to your `Card` component. You can add tags in an array by using the `cardTags` property. By default you're limited to 4 tags per card.
+Within Poggle you can dynamically add tags to your `Card` component. You can add tags in an array by using the `cardTags` property. By default, you're limited to 4 tags per card.
 You can also edit the tags position on the page by using the `tagsPos` for either `top`, `middle` or `bottom`, this is `middle` by default.
 
-With the addition of tags you may need to add padding to your `description`, you can use the `desPy` to add padding vertically or `desPx` to add padding horizontally (measured in rem units).
+With the addition of tags you may need to add padding to your `description`, you can use the `desMy` to add margin vertically or `desMx` to add margin horizontally (measured in rem units).
 
 By default your tags have a gray background and a black text colour. You can easily edit these properties by using the following: `tagsBgColor` for the background colour (default is lightgray)
 `tagsTxtColor` for the colour of the text (default is black).
 
-#### You can also edit the tags padding, fontsize and font-weight. Look at the card Test Your Code section for more.
+#### You can also edit the tags padding, fontsize and font-weight. [Look at the "Test Your Code" section for more](/docs/components-card--test-your-code#playground).
 
 <Canvas>
     <Story name="Card With Tags" args={{
@@ -91,7 +109,7 @@ By default your tags have a gray background and a black text colour. You can eas
         description: "Here like above, I can add my own description to this card component.",
         cardTags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4"],
         tagsPos: "bottom",
-        desPy: 1,
+        desMy: 1,
         tagsBgColor: "black",
         tagsTxtColor: "white"
     }}>{Template.bind({})}</Story>
@@ -111,10 +129,11 @@ like the button to display.
         desLength: 150,
         cardTags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4"],
         tagsPos: "middle",
-        desPy: 1,
+        desMy: 1,
         tagsBgColor: "black",
         tagsTxtColor: "white",
-        button: "Read More"
+        button: "Read More",
+        btnPy: 0.8
     }}>{Template.bind({})}</Story>
 </Canvas>
 
@@ -134,7 +153,7 @@ In this section you can play around with the component and all it's properties. 
         desPy: 1,
         tagsBgColor: "#ea8685",
         tagsTxtColor: "white",
-        button: "Read More"
+        button: "Read More",
     }}>{Template.bind({})}</Story>
 </Canvas>
 

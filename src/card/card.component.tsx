@@ -1,6 +1,9 @@
 import React from 'react';
 
 export interface CardProps {
+  /**
+   * Is this the principal call to action on the page?
+   */
   cardRadius?: number;
   cardShadow?: boolean;
   cardColor?: string;
@@ -13,13 +16,13 @@ export interface CardProps {
   titleLength?: number;
   titleAlign?: string;
   titleSize?: number;
-  titlePx?: number;
-  titlePy?: number;
+  titleMx?: number;
+  titleMy?: number;
   description: string;
   desAlign?: string;
   desLength?: number;
-  desPx?: number;
-  desPy?: number;
+  desMx?: number;
+  desMy?: number;
   button?: string;
   btnColor?: string;
   btnText: string;
@@ -36,6 +39,8 @@ export interface CardProps {
   fnSize?: number;
   tagWeight?: number;
   tagsPos?: string;
+  tagsMx?: number;
+  tagsMy?: number;
   tagsPx?: number;
   tagsPy?: number;
   tagsBgColor?: string;
@@ -43,6 +48,8 @@ export interface CardProps {
   imgHeight?: number;
   contentPx?: number;
   contentPy?: number;
+  contentMx?: number;
+  contentMy?: number;
 }
 
 export const Card: React.FC<CardProps> = ({
@@ -80,14 +87,18 @@ export const Card: React.FC<CardProps> = ({
   imgHeight,
   contentPx = 1,
   contentPy = 1,
-  titlePx = 0.5,
-  titlePy = 0,
-  tagsPx = 0.5,
-  tagsPy = 0.5,
+  contentMx,
+  contentMy,
+  titleMx = 0.5,
+  titleMy = 0,
+  tagsMx = 0.5,
+  tagsMy = 0.5,
+  tagsPx,
+  tagsPy,
   tagsBgColor = 'lightgray',
   tagsTxtColor = 'black',
-  desPx = 0,
-  desPy = 0,
+  desMx = 0,
+  desMy = 0,
 }) => {
   const textTrimmer = (text: string, charLength: number) => {
     return text.slice(0, charLength).concat('...');
@@ -170,6 +181,10 @@ export const Card: React.FC<CardProps> = ({
           paddingRight: contentPx ? contentPx + 'rem' : '0px',
           paddingTop: contentPy ? contentPy + 'rem' : '0px',
           paddingBottom: contentPy ? contentPy + 'rem' : '0px',
+          marginTop: contentMy ? contentMy + 'rem' : '0px',
+          marginBottom: contentMy ? contentMy + 'rem' : '0px',
+          marginLeft: contentMx ? contentMx + 'rem' : '0px',
+          marginRight: contentMx ? contentMx + 'rem' : '0px',
           display: 'flex',
           flexDirection: 'column',
         }}
@@ -180,10 +195,14 @@ export const Card: React.FC<CardProps> = ({
             style={{
               display: 'flex',
               gap: '0.4rem',
-              marginTop: tagsPy ? tagsPy + 'rem' : '0px',
-              marginBottom: tagsPy ? tagsPy + 'rem' : '0px',
-              marginLeft: tagsPx ? tagsPx + 'rem' : '0px',
-              marginRight: tagsPx ? tagsPx + 'rem' : '0px',
+              marginTop: tagsMy ? tagsMy + 'rem' : '0px',
+              marginBottom: tagsMy ? tagsMy + 'rem' : '0px',
+              marginLeft: tagsMx ? tagsMx + 'rem' : '0px',
+              marginRight: tagsMx ? tagsMx + 'rem' : '0px',
+              paddingTop: tagsPy ? tagsPy + 'rem' : '0px',
+              paddingBottom: tagsPy ? tagsPy + 'rem' : '0px',
+              paddingLeft: tagsPx ? tagsPx + 'rem' : '0px',
+              paddingRight: tagsPx ? tagsPx + 'rem' : '0px',
             }}
           >
             {renderTags(cardTags)}
@@ -193,10 +212,10 @@ export const Card: React.FC<CardProps> = ({
         <h1
           style={{
             display: 'flex',
-            marginTop: titlePy ? titlePy + 'rem' : '0px',
-            marginBottom: titlePy ? titlePy + 'rem' : '0px',
-            marginLeft: titlePx ? titlePx + 'rem' : '0px',
-            marginRight: titlePx ? titlePx + 'rem' : '0px',
+            marginTop: titleMy ? titleMy + 'rem' : '0px',
+            marginBottom: titleMy ? titleMy + 'rem' : '0px',
+            marginLeft: titleMx ? titleMx + 'rem' : '0px',
+            marginRight: titleMx ? titleMx + 'rem' : '0px',
             fontFamily: cardFont ? cardFont : 'Arial',
             //@ts-ignore
             textAlign: titleAlign ? titleAlign : 'left',
@@ -213,10 +232,14 @@ export const Card: React.FC<CardProps> = ({
             style={{
               display: 'flex',
               gap: '0.4rem',
-              marginTop: tagsPy ? tagsPy + 'rem' : '0px',
-              marginBottom: tagsPy ? tagsPy + 'rem' : '0px',
-              marginLeft: tagsPx ? tagsPx + 'rem' : '0px',
-              marginRight: tagsPx ? tagsPx + 'rem' : '0px',
+              marginTop: tagsMy ? tagsMy + 'rem' : '0px',
+              marginBottom: tagsMy ? tagsMy + 'rem' : '0px',
+              marginLeft: tagsMx ? tagsMx + 'rem' : '0px',
+              marginRight: tagsMx ? tagsMx + 'rem' : '0px',
+              paddingTop: tagsPy ? tagsPy + 'rem' : '0px',
+              paddingBottom: tagsPy ? tagsPy + 'rem' : '0px',
+              paddingLeft: tagsPx ? tagsPx + 'rem' : '0px',
+              paddingRight: tagsPx ? tagsPx + 'rem' : '0px',
             }}
           >
             {renderTags(cardTags)}
@@ -226,10 +249,10 @@ export const Card: React.FC<CardProps> = ({
         <p
           style={{
             fontSize: `${fnSize ? fnSize + 'rem' : '1rem'}`,
-            marginTop: desPy ? desPy + 'rem' : '0px',
-            marginBottom: desPy ? desPy + 'rem' : '10px',
-            marginLeft: desPx ? desPx + 'rem' : '10px',
-            marginRight: desPx ? desPx + 'rem' : '0px',
+            marginTop: desMy ? desMy + 'rem' : '0px',
+            marginBottom: desMy ? desMy + 'rem' : '10px',
+            marginLeft: desMx ? desMx + 'rem' : '10px',
+            marginRight: desMx ? desMx + 'rem' : '0px',
             //@ts-ignore
             textAlign: desAlign ? desAlign : 'left',
           }}
@@ -250,7 +273,14 @@ export const Card: React.FC<CardProps> = ({
           >
             <button
               style={{
-                padding: `${btnPy}rem ${btnPx}rem`,
+                marginTop: btnMy ? btnMy + 'rem' : '0px',
+                marginBottom: btnMy ? btnMy + 'rem' : '0px',
+                marginLeft: btnMx ? btnMx + 'rem' : '0px',
+                marginRight: btnMx ? btnMx + 'rem' : '0px',
+                paddingTop: btnPy ? btnPy + 'rem' : '0',
+                paddingBottom: btnPy ? btnPy + 'rem' : '0',
+                paddingLeft: btnPx ? btnPx + 'rem' : '0',
+                paddingRight: btnPx ? btnPx + 'rem' : '0',
                 backgroundColor: btnColor,
                 borderRadius: '10px',
                 color: btnText,
@@ -259,10 +289,6 @@ export const Card: React.FC<CardProps> = ({
                 fontSize: `${btnFnSize ? btnFnSize + 'rem' : '1rem'}`,
                 fontWeight: btnWeight ? btnWeight : 'normal',
                 fontFamily: cardFont ? cardFont : 'Arial',
-                marginTop: btnMy ? btnMy + 'rem' : '0px',
-                marginBottom: btnMy ? btnMy + 'rem' : '0px',
-                marginLeft: btnMx ? btnMx + 'rem' : '0px',
-                marginRight: btnMx ? btnMx + 'rem' : '0px',
                 border: btnBorder ? btnBorder : 'none',
                 borderColor: btnBorderCol ? btnBorderCol : 'none',
               }}
@@ -277,10 +303,14 @@ export const Card: React.FC<CardProps> = ({
             style={{
               display: 'flex',
               gap: '0.4rem',
-              marginTop: tagsPy ? tagsPy + 'rem' : '0px',
-              marginBottom: tagsPy ? tagsPy + 'rem' : '0px',
-              marginLeft: tagsPx ? tagsPx + 'rem' : '0px',
-              marginRight: tagsPx ? tagsPx + 'rem' : '0px',
+              marginTop: tagsMy ? tagsMy + 'rem' : '0px',
+              marginBottom: tagsMy ? tagsMy + 'rem' : '0px',
+              marginLeft: tagsMx ? tagsMx + 'rem' : '0px',
+              marginRight: tagsMx ? tagsMx + 'rem' : '0px',
+              paddingTop: tagsPy ? tagsPy + 'rem' : '0px',
+              paddingBottom: tagsPy ? tagsPy + 'rem' : '0px',
+              paddingLeft: tagsPx ? tagsPx + 'rem' : '0px',
+              paddingRight: tagsPx ? tagsPx + 'rem' : '0px',
             }}
           >
             {renderTags(cardTags)}
@@ -291,10 +321,10 @@ export const Card: React.FC<CardProps> = ({
             style={{
               display: 'flex',
               gap: '0.4rem',
-              marginTop: tagsPy ? tagsPy + 'rem' : '0px',
-              marginBottom: tagsPy ? tagsPy + 'rem' : '0px',
-              marginLeft: tagsPx ? tagsPx + 'rem' : '0px',
-              marginRight: tagsPx ? tagsPx + 'rem' : '0px',
+              marginTop: tagsMy ? tagsMy + 'rem' : '0px',
+              marginBottom: tagsMy ? tagsMy + 'rem' : '0px',
+              marginLeft: tagsMx ? tagsMx + 'rem' : '0px',
+              marginRight: tagsMx ? tagsMx + 'rem' : '0px',
             }}
           >
             {renderTags(cardTags)}
