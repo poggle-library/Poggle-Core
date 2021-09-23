@@ -6,6 +6,7 @@
 [![Made with JavaScript](https://img.shields.io/badge/Made_with-JavaScript-blue?logo=javascript&logoColor=white)](https://www.javascript.com/)
 [![Made with TypeScript](https://img.shields.io/badge/TypeScript-4-blue?logo=typescript&logoColor=white)](https://typescriptlang.org)
 [![Made with React](https://img.shields.io/badge/React-17-blue?logo=react&logoColor=white)](https://www.npmjs.com/package/react)
+
 Welcome to Poggle a react component library! This library is currently heavily in development and is not suitable for commercial projects.
 As it currently stands as of this version release there is only 1 component included with Poggle.
 
