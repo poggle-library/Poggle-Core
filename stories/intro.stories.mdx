@@ -1,11 +1,31 @@
-import { Meta } from '@storybook/addon-docs'
+import { Meta, Story } from '@storybook/addon-docs'
+import { Intro, Install } from '../src/';
 
-<Meta title="Getting Started/ Introduction" />
+<Meta title="Getting Started" component={Intro} argTypes={{}} />
+
+
+export const Template = (args) => <Intro {...args}/>;
 
 <iframe src="https://giphy.com/embed/l0IygWpszunxnkMAo" width="480" height="270" frameBorder="0" className="giphy-embed" />
 
+<Story name="Introduction" args={{}}>
+  {Template.bind({})}
+</Story>
+
+<br /><br />
+
 # Introduction
-Poggle is a React Component library aimed at speeding up the development of React websites. Poggle was built using TypeScript, to make it scalable and also minimise errors when developing.
+Poggle is a React Component library aimed at speeding up the development of React websites. Poggle was built using TypeScript, to make it scalable and also minimise errors when developing. Poggle
+has many prebuilt components that allow you to eaily setup a website or project.
+
+The goal of Poggle was to make it easier for freelancers or teams to build and test an idea in under an hour, drastically reducing the development process to validate ideas.
+
+Poggle is currently <b>version 1.0.421</b> - This is still an <b>in-development version</b> of our project. We expect a commercial build to be ready at <b>version 1.1.0</b>. So please keep that in mind if you are using Poggle.
+<br /><br />
+
+<Story name="Install Poggle" args={{}}>
+  {Template.bind({})}
+</Story>
 
 ## Install Poggle
 You can easily install Poggle from NPM or Yarn using the following commands in your terminal:
@@ -20,6 +40,11 @@ npm install @Poggle/core
 ```
 yarn add @Poggle/core
 ```
+<br />
+
+<Story name="Font Installation" args={{}}>
+  {Template.bind({})}
+</Story>
 
 # Font Installation
 Poggle was built using the Roboto font, as we found it the most elegant. Please be sure to add this to the index.html of your project, by copying and pasting the following code:
@@ -27,3 +52,11 @@ Poggle was built using the Roboto font, as we found it the most elegant. Please 
 ```
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"/>
 ```
+<br />
+
+<Story name="Useful Links" args={{}}>
+  {Template.bind({})}
+</Story>
+
+# Useful Links [IN DEVELOPMENT]
+If you're new to Poggle or React, we recommend that you check out these resources to help you get better acquainted to the Poggle eco-system.
