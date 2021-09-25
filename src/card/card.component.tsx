@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { css } from '@emotion/css';
+// @ts-ignore
+import { BP } from '../breakpoints';
 
 export interface CardProps {
   /**
@@ -58,7 +61,7 @@ export const Card: React.FC<CardProps> = ({
   cardColor = 'white',
   cardTags = [],
   cardFont = 'Roboto',
-  width = 25,
+  width = 1,
   height = 'auto',
   image = '',
   title = undefined,
@@ -100,6 +103,18 @@ export const Card: React.FC<CardProps> = ({
   desMx = 0,
   desMy = 0,
 }) => {
+  const [adjustedRems, setAdjustedRems] = useState<number>(0);
+
+  const calculatePercentage = (sWidth: number) => {
+    const SW = width / sWidth;
+    const newSW = SW * 100;
+    setAdjustedRems(sWidth / newSW);
+  };
+
+  useEffect(() => {
+    calculatePercentage(window.innerWidth);
+  }, [window.innerWidth]);
+
   const textTrimmer = (text: string, charLength: number) => {
     return text.slice(0, charLength).concat('...');
   };
@@ -107,6 +122,8 @@ export const Card: React.FC<CardProps> = ({
   if (cardTags === undefined) {
     cardTags = [''];
   }
+
+  console.log(window.innerWidth - adjustedRems);
 
   const renderTags = (tags: Array<string>) => {
     if (tags !== undefined) {
@@ -148,16 +165,18 @@ export const Card: React.FC<CardProps> = ({
   // @ts-ignore
   return (
     <div
-      style={{
-        backgroundColor: cardColor ? cardColor : 'white',
-        width: width ? width + 'rem' : '25rem',
-        height: height ? height + 'rem' : 'auto',
-        borderRadius: `${cardRadius ? cardRadius + 'rem' : '1rem'}`,
-        boxShadow: cardShadow
+      className={css`
+        background-color: ${cardColor ? cardColor : 'white'};
+        width: ${width
+          ? (window.innerWidth - adjustedRems) / 10 + 'rem'
+          : '6rem'};
+        height: ${height ? `${height}rem` : 'auto'};
+        border-radius: ${cardRadius ? `${cardRadius}rem` : '1rem'};
+        box-shadow: ${cardShadow
           ? '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
-          : '',
-        cursor: 'pointer',
-      }}
+          : ''};
+        cursor: pointer;
+      `}
     >
       {image && (
         <img

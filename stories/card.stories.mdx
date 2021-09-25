@@ -51,7 +51,7 @@ Let's have a look at the various card setups you can have within Poggle.
 This is perhaps the most basic card you can have within Poggle. This card by default has a basic content padding with a `cardShadow` that renders the `description` you place inside the component.
 
 <Canvas>
-    <Story name="Basic Card" args={{ description: "This is your card text"}}>
+    <Story name="Basic Card" args={{ description: "This is your card text", width:70}}>
         {Template.bind({})}
     </Story>
 </Canvas>
@@ -67,7 +67,7 @@ Additionally you can edit your cards `width` and `height`. By default the `width
         desLength: 250,
         cardFont: "Helvetica",
         fnSize: 2,
-        width: 50
+        width: 5
     }}>
         {Template.bind({})}
     </Story>
@@ -85,7 +85,8 @@ You can also limit the amount of characters a title can render using the `titleL
         image: "https://images.pexels.com/photos/1154198/pexels-photo-1154198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         title: "Something to grab the audiences attention!",
         titleSize: 20,
-        description: "Here like above, I can add my own description to this card component."
+        description: "Here like above, I can add my own description to this card component.",
+        width:60
     }}>{Template.bind({})}</Story>
 </Canvas>
 
@@ -111,7 +112,8 @@ By default your tags have a gray background and a black text colour. You can eas
         tagsPos: "bottom",
         desMy: 1,
         tagsBgColor: "black",
-        tagsTxtColor: "white"
+        tagsTxtColor: "white",
+        width:60,
     }}>{Template.bind({})}</Story>
 </Canvas>
 

@@ -10,7 +10,7 @@
 Welcome to Poggle a react component library! This library is currently heavily in development and is not suitable for commercial projects.
 As it currently stands as of this version release there is only 1 component included with Poggle.
 
-You can read our full docs [here.](https://ghostcrawl3r.github.io/poggle/?path=/docs/getting-started-introduction--page)
+You can read our full docs [here.](http://poggle.io)
 
 Please feel free to follow the project on GH. 
 
