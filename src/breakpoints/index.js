@@ -1,4 +1,4 @@
-export const BP = {
+export const Bp = {
   xs: '640px',
   sm: '796px',
   md: '1024px',

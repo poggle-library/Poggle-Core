@@ -2,39 +2,286 @@ import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
 import { Card } from "../src";
 
 <Meta title="Components/Cards" component={Card} argTypes={{
-  width: { control: {type: 'number'}},
-    tagsBgColor: {
-        control:'color',
+  width: {
+    control: {
+      type: 'range'
     },
-    tagsTxtColor: {
-        control:'color',
-    },
-    cardColor: {
-        control:'color',
-    },
-    btnColor: {
-        control:'color',
-    },
-    btnText: {
-        control:'color',
-    },
-  tagsPos: {
-    options: ['top', 'middle', 'bottom'],
-    control: {type: 'radio'}
+    description: "This value sets the width of the card, in rem units."
+  },
+  height: {
+    control: {type: 'range'},
+    description: "This value sets the height of the card, in rem units."
+  },
+  image: {
+    description: "Use this property to set a card image, this needs to be a string address."
+  },
+  imgHeight: {
+    control: {type: 'range'},
+    description: "With this value you can set height of your image. Measured in rem units."
+  },
+  cardRadius: {
+    control: {type: 'range'},
+    description: "This value sets the radius of the card, in rem units."
   },
   cardShadow: {
     options: ['true', 'false'],
-    control: {type: 'boolean'}
+    control: {type: 'boolean'},
+    description: "If true, this value gives your card a shadow."
   },
-  cardRadius: {
-    control: {type: 'range'}
+  cardHoverShadow: {
+    options: ['true', 'false'],
+    control: {type: 'boolean'},
+    description: "If true, this value gives your card a hover shadow."
+  },
+  cardColor: {
+    control:'color',
+    description: "Enter a string to set the colour of your card. Either a colour code or a colour, like 'red'. The default colour is set to 'white'.",
+  },
+  cardFont: {
+    description: "Use this property to add a specific font-type for this card. The default is Roboto, however if your css has global defaults for fonts, that will override this."
+  },
+  xsWidth: {
+    control: {
+      type: 'range'
+    },
+    description: "This value sets the width of the card on extra small screens, in rem units."
+  },
+  smWidth: {
+    control: {
+      type: 'range'
+    },
+    description: "This value sets the width of the card on small screens, in rem units."
+  },
+  mdWidth: {
+    control: {
+      type: 'range'
+    },
+    description: "This value sets the width of the card on medium screens, in rem units."
+  },
+  lgWidth: {
+    control: {
+      type: 'range'
+    },
+    description: "This value sets the width of the card on large screens, in rem units."
+  },
+  xlWidth: {
+    control: {
+      type: 'range'
+    },
+    description: "This value sets the width of the card on extra large screens, in rem units."
+  },
+  contentPx: {
+    control: {type: 'range'},
+    description: "With this value you can set the padding-left and padding-right of your content."
+  },
+  contentPy: {
+    control: {type: 'range'},
+    description: "With this value you can set the padding-top and padding-bottom of your content."
+  },
+  contentMx: {
+    control: {type: 'range'},
+    description: "With this value you can set the margin-left and margin-right of your content."
+  },
+  contentMy: {
+    control: {type: 'range'},
+    description: "With this value you can set the margin-top and margin-bottom of your content."
+  },
+  title: {
+    description: "This value sets the text for the title."
+  },
+  titleLength: {
+    control: {
+      type: 'range'
+    },
+    description: "This value sets a text limit on the amount of characters a title can show. It appends '...' to the end of the string."
+  },
+  titleHover:{
+    control: {
+      type: "boolean"
+    },
+    description: "If this value is set to true the title will be underlined on hover."
+  },
+  titleAlign: {
+    control: {type: 'radio'},
+    options: ['left', 'center', 'right'],
+    description: "With this value you can align where the title is on your card."
   },
   titleSize: {
-    control: {type: 'range'}
+    control: {type: 'range'},
+    description: "With this value you can set the size of your title in rem units."
+  },
+  titleWeight: {
+    control: {type: 'select'},
+    options: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    description: "With this value you can set the font weight of your title."
+  },
+  titleMx: {
+    control: {type: 'range'},
+    description: "With this value you can set the margin-left and margin-right of your title."
+  },
+  titleMy: {
+    control: {type: 'range'},
+    description: "With this value you can set the margin-top and margin-bottom of your title."
+  },
+  titlePx: {
+    control: {type: 'range'},
+    description: "With this value you can set the padding-left and padding-right of your title."
+  },
+  titlePy: {
+    control: {type: 'range'},
+    description: "With this value you can set the padding-top and padding-bottom of your title."
+  },
+  description: {
+    description: "This value sets the text for the description."
   },
   desLength: {
-    control: {type: 'number'}
-  }
+    control: {
+      type: 'number'
+    },
+    description: "This value sets a text limit on the amount of characters your description can show. It appends '...' to the end of the string."
+  },
+  desAlign: {
+    control: {type: 'radio'},
+    options: ['left', 'center', 'right'],
+    description: "With this value you can align where the description is on your card."
+  },
+  desSize: {
+    control: {type: 'range'},
+    description: "With this value you can set the font-size of your description."
+  },
+  desWeight: {
+    control: {type: 'select'},
+    options: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    description: "With this value you can set the font weight of your description."
+  },
+  desMx: {
+    control: {type: 'range'},
+    description: "With this value you can set the margin-left and margin-right of your description."
+  },
+  desMy: {
+    control: {type: 'range'},
+    description: "With this value you can set the margin-top and margin-bottom of your description."
+  },
+  desPx: {
+    control: {type: 'range'},
+    description: "With this value you can set the padding-left and padding-right of your description."
+  },
+  desPy: {
+    control: {type: 'range'},
+    description: "With this value you can set the padding-top and padding-bottom of your description."
+  },
+  cardTags: {
+    control: { type: "array"},
+    description:"Use this property to add tags to your card. Add the tags in via string arrays."
+  },
+  tagsHover: {
+    options: ['true', 'false'],
+    control: {type: 'boolean'},
+    description: "If true, this value gives your card a hover shadow."
+  },
+  tagsPos: {
+    options: ['top', 'middle', 'bottom'],
+    control: {type: 'radio'},
+    description: "This value sets the position of your tags."
+  },
+  tagWeight: {
+    control: {type: 'select'},
+    options: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    description: "With this value you can set the font weight of your tags."
+  },
+  tagsBgColor: {
+    control:'color',
+    description: "Enter a string to set the background colour of your tags. Either a colour code or a colour, like 'red'. The default colour is set to 'white'.",
+  },
+  tagsTxtColor: {
+    control:'color',
+    description: "Enter a string to set the text colour of your tags. Either a colour code or a colour, like 'red'. The default colour is set to 'black'.",
+  },
+  tagsMx: {
+    control: {type: 'range'},
+    description: "With this value you can set the margin-left and margin-right of your tags."
+  },
+  tagsMy: {
+    control: {type: 'range'},
+    description: "With this value you can set the margin-top and margin-bottom of your tags."
+  },
+  tagsPx: {
+    control: {type: 'range'},
+    description: "With this value you can set the padding-left and padding-right of your tags."
+  },
+  tagsPy: {
+    control: {type: 'range'},
+    description: "With this value you can set the padding-top and padding-bottom of your tags."
+  },
+  button: {
+    options: ['true', 'false'],
+    control: {type: 'boolean'},
+    description: "If true, this value adds a button to your card."
+  },
+  btnHover: {
+    options: ['true', 'false'],
+    control: {type: 'boolean'},
+    description: "If true, this value gives your button a hover effect."
+  },
+  btnText: {
+    description: "This value sets the text for the button."
+  },
+  btnWidth: {
+    control: {
+      type: 'range'
+    },
+    description: "This value sets the width size of the button, in rem units."
+  },
+  btnWeight: {
+    control: {type: 'select'},
+    options: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+    description: "With this value you can set the font weight of your button."
+  },
+  btnMx: {
+    control: {type: 'range'},
+    description: "With this value you can set the margin-left and margin-right of your button."
+  },
+  btnMy: {
+    control: {type: 'range'},
+    description: "With this value you can set the margin-top and margin-bottom of your button."
+  },
+  btnPx: {
+    control: {type: 'range'},
+    description: "With this value you can set the padding-left and padding-right of your button."
+  },
+  btnPy: {
+    control: {type: 'range'},
+    description: "With this value you can set the padding-top and padding-bottom of your button."
+  },
+  btnFnSize: {
+    control: {
+      type: 'range'
+    },
+    description: "This value sets the size of your button text in rem units."
+  },
+  btnPos: {
+    options: ['top', 'middle', 'bottom'],
+    control: {type: 'radio'},
+    description: "This value sets the position of your button."
+  },
+  btnBgColor: {
+    control:'color',
+    description: "Enter a string to set the background colour of your button. Either a colour code or a colour, like 'red'. The default colour is set to 'black'.",
+  },
+  btnTxtColor: {
+    control:'color',
+    description: "Enter a string to set the text colour of your button. Either a colour code or a colour, like 'red'. The default colour is set to 'white'.",
+  },
+  btnBorder:{
+    control: {
+      type: 'range'
+    },
+    description: "This value sets the size of your button border in rem units."
+  },
+  btnBorderCol:{
+    control:'color',
+    description: "Enter a string to set the background colour of your button border. Either a colour code or a colour, like 'red'. The default colour is set to 'black'.",
+  },
 }} />
 
 export const Template = (args) => <Card {...args}/>;
@@ -51,13 +298,13 @@ Let's have a look at the various card setups you can have within Poggle.
 This is perhaps the most basic card you can have within Poggle. This card by default has a basic content padding with a `cardShadow` that renders the `description` you place inside the component.
 
 <Canvas>
-    <Story name="Basic Card" args={{ description: "This is your card text", width:70}}>
+    <Story name="Basic Card" args={{ description: "This is your card text"}}>
         {Template.bind({})}
     </Story>
 </Canvas>
 
 Poggle automatically limits your `description` length to 200 characters, you can change this by changing the `desLength` prop within the component. You can also change the font family by editing the
-`cardFont` prop for all items. You may also edit the `description` font size by using the `fnSize` prop, the `fnSize` is rendered using rem not px, so just enter a value, for example 2.
+`cardFont` prop for all items. You may also edit the `description` font size by using the `fnSize` prop, the `desSize` is rendered using rem not px, so just enter a value, for example 2.
 
 Additionally you can edit your cards `width` and `height`. By default the `width` is set to 25rem and the height is auto.
 
@@ -66,8 +313,7 @@ Additionally you can edit your cards `width` and `height`. By default the `width
         description: "Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Cras ultricies ligula sed magna dictum porta. Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor accumsan tincidunt. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Sed porttitor lectus nibh.",
         desLength: 250,
         cardFont: "Helvetica",
-        fnSize: 2,
-        width: 5
+        width: 60
     }}>
         {Template.bind({})}
     </Story>
@@ -83,10 +329,8 @@ You can also limit the amount of characters a title can render using the `titleL
     <Story name="Card With An Image" args={{
         cardRadius: 0.5,
         image: "https://images.pexels.com/photos/1154198/pexels-photo-1154198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        title: "Something to grab the audiences attention!",
-        titleSize: 20,
+        title: "A Card With An Image",
         description: "Here like above, I can add my own description to this card component.",
-        width:60
     }}>{Template.bind({})}</Story>
 </Canvas>
 
@@ -99,64 +343,106 @@ With the addition of tags you may need to add padding to your `description`, you
 By default your tags have a gray background and a black text colour. You can easily edit these properties by using the following: `tagsBgColor` for the background colour (default is lightgray)
 `tagsTxtColor` for the colour of the text (default is black).
 
-#### You can also edit the tags padding, fontsize and font-weight. [Look at the "Test Your Code" section for more](/docs/components-card--test-your-code#playground).
+#### You can also edit the tags padding, fontsize and font-weight. [Look at the "Create A Card" section for more](/docs/components-cards--create-a-card).
 
 <Canvas>
     <Story name="Card With Tags" args={{
         cardRadius: 0.5,
         image: "https://images.pexels.com/photos/1154198/pexels-photo-1154198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        title: "Something to grab the audiences attention!",
-        titleSize: 20,
+        title: "A Card With Tags",
         description: "Here like above, I can add my own description to this card component.",
         cardTags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4"],
-        tagsPos: "bottom",
-        desMy: 1,
         tagsBgColor: "black",
         tagsTxtColor: "white",
-        width:60,
     }}>{Template.bind({})}</Story>
 </Canvas>
 
+
+# Responsive Cards
+With our card's system you can easily set up different card widths at different breakpoints. Each breakpoint has a default if you choose to leave it blank. The breakpoints are in ascending order
+`xsWidth`, `smWidth`, `mdWidth` and `lgWidth`. Give it a try, resize your browser and see this card change to fit your screen.
+
+By default all `cards` have build in responsive defaults. To override these defaults edit the aforementioned properties above.
+
+<Canvas>
+  <Story name="Responsive Cards" args={{
+    image: "https://images.pexels.com/photos/1154198/pexels-photo-1154198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    title: "A Responsive Card!",
+    titleAlign: "center",
+    width: 30,
+    xsWidth: 20,
+    smWidth: 28,
+    mdWidth: 33,
+  }}>{Template.bind({})}</Story>
+</Canvas>
+
 # Blog Post
-Within Poggle you can easily render a blog component with ease, with a full range of customisable content to make your blog post unique. Simply add the `button` property with the text you would
-like the button to display.
+Within Poggle you can easily render a blog component with ease, with a full range of customisable content to make your blog post unique. Simply set the `button` property to true and add your own
+button text with the `btnText` prop.
+
+You can customise your button further with additional props like `btnTxtColor`, `btnBgColor` and much more.
 
 <Canvas>
     <Story name="Blog Post" args={{
         cardRadius: 0.5,
         image: "https://images.pexels.com/photos/1154198/pexels-photo-1154198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
         title: "Something to grab the audiences attention!",
-        titleSize: 20,
+        titleLength: 35,
         description: "Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Cras ultricies ligula sed magna dictum porta. Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor accumsan tincidunt. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Sed porttitor lectus nibh.",
         desLength: 150,
         cardTags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4"],
-        tagsPos: "middle",
-        desMy: 1,
         tagsBgColor: "black",
         tagsTxtColor: "white",
-        button: "Read More",
-        btnPy: 0.8
+        button: true,
     }}>{Template.bind({})}</Story>
 </Canvas>
 
-# Playground
+# A Card With Hover Effects
+Poggle has the ability to add custom hover effects to components on your card to give it that extra visual effect. The `cardHoverShadow` property adds an enlarged shadow to your card to show that it's highlighting that specific card.
+The `tagsHover` and `btnHover` properties inverse the colours of your tags and button. The `titleHover` property, underlines your title on the card.
+
+<Canvas>
+  <Story name="Hover Effects" args={{
+    titleHover: true,
+    cardHoverShadow: true,
+    cardRadius: 0.5,
+    image: "https://images.pexels.com/photos/1154198/pexels-photo-1154198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    title: "This is a hover card",
+    description: "Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Cras ultricies ligula sed magna dictum porta. Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor accumsan tincidunt. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Sed porttitor lectus nibh.",
+    desLength: 150,
+    cardTags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4"],
+    tagsHover: true,
+    tagsBgColor: "black",
+    tagsTxtColor: "white",
+    button: true,
+    btnHover: true,
+  }}>{Template.bind({})}</Story>
+</Canvas>
+
+# Create A Custom Card
 In this section you can play around with the component and all it's properties. Allowing you to create the exact card you want to have and copy the code.
 
 <Canvas>
-    <Story name="Test Your Code" args={{
+    <Story name="Create A Card" args={{
+        cardShadow: true,
+        cardHoverShadow: true,
         cardRadius: 0.5,
         image: "https://images.pexels.com/photos/1154198/pexels-photo-1154198.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
-        title: "Something to grab the audiences attention!",
-        titleSize: 20,
+        title: "A custom card component",
         description: "Nulla porttitor accumsan tincidunt. Donec rutrum congue leo eget malesuada. Donec rutrum congue leo eget malesuada. Cras ultricies ligula sed magna dictum porta. Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla porttitor accumsan tincidunt. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Sed porttitor lectus nibh.",
         desLength: 150,
-        cardTags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4"],
-        tagsPos: "middle",
         desPy: 1,
-        tagsBgColor: "#ea8685",
+        cardTags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4"],
+        tagsHover: true,
+        tagsPos: "bottom",
+        tagsBgColor: "#276AE7",
         tagsTxtColor: "white",
-        button: "Read More",
+        button: true,
+        btnHover: true,
+        btnText: "Learn More",
+        btnWeight: 400,
+        btnBgColor: "#276AE7"
     }}>{Template.bind({})}</Story>
 </Canvas>
 
-<ArgsTable story="Test Your Code"  />
+<ArgsTable story="Create A Card"  />

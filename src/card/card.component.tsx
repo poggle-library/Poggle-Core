@@ -1,45 +1,57 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { css } from '@emotion/css';
 // @ts-ignore
-import { BP } from '../breakpoints';
+import { Bp } from '../breakpoints';
 
 export interface CardProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
   cardRadius?: number;
   cardShadow?: boolean;
+  cardHoverShadow?: boolean;
   cardColor?: string;
   cardTags?: Array<string>;
   cardFont?: string;
   width?: number;
+  xsWidth?: number;
+  smWidth?: number;
+  mdWidth?: number;
+  lgWidth?: number;
+  xlWidth?: number;
   height?: number;
   image?: string;
   title?: string;
+  titleHover?: boolean;
   titleLength?: number;
   titleAlign?: string;
   titleSize?: number;
+  titleWeight?: number;
   titleMx?: number;
   titleMy?: number;
+  titlePx?: number;
+  titlePy?: number;
   description: string;
   desAlign?: string;
   desLength?: number;
+  desWeight?: number;
   desMx?: number;
   desMy?: number;
-  button?: string;
-  btnColor?: string;
+  desPy?: number;
+  desPx?: number;
+  button?: boolean;
   btnText: string;
+  btnBgColor?: string;
+  btnTxtColor?: string;
   btnPx?: number;
   btnPy?: number;
   btnMx?: number;
   btnMy?: number;
   btnBorder?: string;
   btnBorderCol?: string;
-  btnLength?: number;
+  btnWidth?: number;
   btnFnSize?: number;
   btnWeight?: number;
   btnPos?: string;
-  fnSize?: number;
+  btnHover?: boolean;
+  desSize?: number;
   tagWeight?: number;
   tagsPos?: string;
   tagsMx?: number;
@@ -48,6 +60,7 @@ export interface CardProps {
   tagsPy?: number;
   tagsBgColor?: string;
   tagsTxtColor?: string;
+  tagsHover?: boolean;
   imgHeight?: number;
   contentPx?: number;
   contentPy?: number;
@@ -58,35 +71,53 @@ export interface CardProps {
 export const Card: React.FC<CardProps> = ({
   cardRadius = '0',
   cardShadow = true,
+  cardHoverShadow = false,
   cardColor = 'white',
   cardTags = [],
   cardFont = 'Roboto',
-  width = 1,
+  width = 23,
+  xsWidth = 20,
+  smWidth = 22,
+  mdWidth = 33,
+  lgWidth = 60,
+  xlWidth = 60,
   height = 'auto',
   image = '',
   title = undefined,
+  titleHover = false,
   titleLength = undefined,
-  titleAlign = '',
-  titleSize = 35,
+  titleAlign = 'left',
+  titleSize = 2,
+  titleWeight = 700,
   description = '',
   desAlign = 'left',
   desLength = 200,
-  button = '',
-  btnColor = 'black',
-  btnText = 'White',
+  desSize = 1.2,
+  desWeight = 400,
+  button = false,
+  btnHover = false,
+  btnText = 'Read more',
+  btnBgColor = 'black',
+  btnTxtColor = 'white',
   btnPx = 2,
   btnPy = 0.7,
   btnMx = 0.5,
-  btnMy = 1,
-  btnBorder = 10,
+  btnMy = 0,
+  btnBorder = 0,
   btnBorderCol,
-  btnLength = 10,
+  btnWidth = 10,
   btnFnSize = 1,
   btnWeight = 700,
   btnPos = 'left',
-  fnSize = 1.2,
-  tagWeight = 400,
+  tagWeight = 500,
   tagsPos = 'middle',
+  tagsBgColor = 'white',
+  tagsTxtColor = 'black',
+  tagsHover = false,
+  tagsMx = 0.5,
+  tagsMy = 0,
+  tagsPx,
+  tagsPy,
   imgHeight,
   contentPx = 1,
   contentPy = 1,
@@ -94,27 +125,13 @@ export const Card: React.FC<CardProps> = ({
   contentMy,
   titleMx = 0.5,
   titleMy = 0,
-  tagsMx = 0.5,
-  tagsMy = 0.5,
-  tagsPx,
-  tagsPy,
-  tagsBgColor = 'lightgray',
-  tagsTxtColor = 'black',
+  titlePx = 0,
+  titlePy = 0,
   desMx = 0,
   desMy = 0,
+  desPy = 0,
+  desPx = 0,
 }) => {
-  const [adjustedRems, setAdjustedRems] = useState<number>(0);
-
-  const calculatePercentage = (sWidth: number) => {
-    const SW = width / sWidth;
-    const newSW = SW * 100;
-    setAdjustedRems(sWidth / newSW);
-  };
-
-  useEffect(() => {
-    calculatePercentage(window.innerWidth);
-  }, [window.innerWidth]);
-
   const textTrimmer = (text: string, charLength: number) => {
     return text.slice(0, charLength).concat('...');
   };
@@ -122,8 +139,6 @@ export const Card: React.FC<CardProps> = ({
   if (cardTags === undefined) {
     cardTags = [''];
   }
-
-  console.log(window.innerWidth - adjustedRems);
 
   const renderTags = (tags: Array<string>) => {
     if (tags !== undefined) {
@@ -133,20 +148,33 @@ export const Card: React.FC<CardProps> = ({
             return (
               <div
                 key={index}
-                style={{ display: 'flex', alignItems: 'center' }}
+                className={css`
+                  display: flex;
+                  align-items: center;
+                `}
               >
                 <h1
-                  style={{
-                    padding: '0.2rem 1rem',
-                    backgroundColor: tagsBgColor ? tagsBgColor : 'lightgray',
-                    width: '100%',
-                    borderRadius: '0.5rem',
-                    color: tagsTxtColor ? tagsTxtColor : 'black',
-                    textTransform: 'capitalize',
-                    fontSize: '1rem',
-                    fontWeight: tagWeight ? tagWeight : 'normal',
-                    fontFamily: cardFont ? cardFont : 'Roboto',
-                  }}
+                  className={css`
+                    padding: 0.2rem 1rem;
+                    background-color: ${tagsBgColor ? tagsBgColor : 'white'};
+                    width: 100%;
+                    border-radius: 0.5rem;
+                    color: ${tagsTxtColor ? tagsTxtColor : 'black'};
+                    text-transform: capitalize;
+                    font-size: 1rem;
+                    font-weight: ${tagWeight ? tagWeight : '500'};
+                    font-family: ${cardFont ? cardFont : 'Roboto'};
+                    &:hover {
+                      color: ${tagsHover && tagsBgColor
+                        ? tagsBgColor
+                        : tagsTxtColor};
+                      background-color: ${tagsHover && tagsTxtColor
+                        ? tagsTxtColor
+                        : tagsBgColor};
+                      border: 1px solid
+                        ${tagsHover && tagsBgColor ? tagsBgColor : 'none'};
+                    }
+                  `}
                 >
                   {tag}
                 </h1>
@@ -159,87 +187,130 @@ export const Card: React.FC<CardProps> = ({
       return null;
     }
   };
-  // @ts-ignore
-  // @ts-ignore
-  // @ts-ignore
-  // @ts-ignore
+
+  const textAlignment = (direction: string) => {
+    if (direction === 'left') {
+      return 'flex-start';
+    } else if (direction === 'center') {
+      return 'center';
+    } else if (direction === 'right') {
+      return 'flex-end';
+    } else {
+      return null;
+    }
+  };
+
   return (
     <div
       className={css`
         background-color: ${cardColor ? cardColor : 'white'};
-        width: ${width
-          ? (window.innerWidth - adjustedRems) / 10 + 'rem'
-          : '6rem'};
+        width: ${width ? width + 'rem' : '23rem'};
         height: ${height ? `${height}rem` : 'auto'};
-        border-radius: ${cardRadius ? `${cardRadius}rem` : '1rem'};
+        border-radius: ${cardRadius > 0 ? cardRadius + 'rem' : '0rem'};
         box-shadow: ${cardShadow
           ? '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
           : ''};
         cursor: pointer;
+
+        &:hover {
+          box-shadow: ${cardHoverShadow
+            ? '2px 0px 9px 5px rgba(0,0,0,0.35)'
+            : ''};
+        }
+
+        @media (max-width: ${Bp.xl}) {
+          width: ${width < 60 ? width + 'rem' : xlWidth + 'rem'};
+        }
+
+        @media (max-width: ${Bp.lg}) {
+          width: ${width < 60 ? width + 'rem' : lgWidth + 'rem'};
+        }
+
+        @media (max-width: ${Bp.md}) {
+          width: ${width < 43 ? width + 'rem' : mdWidth + 'rem'};
+        }
+
+        @media (max-width: ${Bp.sm}) {
+          width: ${width < 28 ? width + 'rem' : smWidth + 'rem'};
+        }
+
+        @media (max-width: ${Bp.xs}) {
+          width: ${width < 20 ? width + 'rem' : `${xsWidth}rem`};
+        }
       `}
     >
       {image && (
         <img
           src={image}
           alt="blog-post"
-          style={{
-            width: '100%',
-            height: `${imgHeight ? imgHeight + 'rem' : '15rem'}`,
-            objectFit: 'cover',
-            borderRadius: `${
-              cardRadius
-                ? `${cardRadius}rem ${cardRadius}rem 0 0`
-                : '1rem 1rem 0 0 '
-            }`,
-          }}
+          className={css`
+            width: 100%;
+            height: ${imgHeight ? imgHeight + 'rem' : '15rem'};
+            object-fit: cover;
+            border-radius: ${cardRadius
+              ? `${cardRadius}rem ${cardRadius}rem 0 0`
+              : '1rem 1rem 0 0'};
+          `}
         />
       )}
       <div
-        style={{
-          paddingLeft: contentPx ? contentPx + 'rem' : '0px',
-          paddingRight: contentPx ? contentPx + 'rem' : '0px',
-          paddingTop: contentPy ? contentPy + 'rem' : '0px',
-          paddingBottom: contentPy ? contentPy + 'rem' : '0px',
-          marginTop: contentMy ? contentMy + 'rem' : '0px',
-          marginBottom: contentMy ? contentMy + 'rem' : '0px',
-          marginLeft: contentMx ? contentMx + 'rem' : '0px',
-          marginRight: contentMx ? contentMx + 'rem' : '0px',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
+        className={css`
+          padding-left: ${contentPx ? contentPx + 'rem' : '0px'};
+          padding-right: ${contentPx ? contentPx + 'rem' : '0px'};
+          padding-top: ${contentPy ? contentPy + 'rem' : '0px'};
+          padding-bottom: ${contentPy ? contentPy + 'rem' : '0px'};
+          margin-top: ${contentMy ? contentMy + 'rem' : '0px'};
+          margin-bottom: ${contentMy ? contentMy + 'rem' : '0px'};
+          margin-left: ${contentMx ? contentMx + 'rem' : '0px'};
+          margin-right: ${contentMx ? contentMx + 'rem' : '0px'};
+          display: flex;
+          flex-direction: column;
+        `}
       >
         {/*card tags option*/}
         {tagsPos === 'top' && (
           <div
-            style={{
-              display: 'flex',
-              gap: '0.4rem',
-              marginTop: tagsMy ? tagsMy + 'rem' : '0px',
-              marginBottom: tagsMy ? tagsMy + 'rem' : '0px',
-              marginLeft: tagsMx ? tagsMx + 'rem' : '0px',
-              marginRight: tagsMx ? tagsMx + 'rem' : '0px',
-              paddingTop: tagsPy ? tagsPy + 'rem' : '0px',
-              paddingBottom: tagsPy ? tagsPy + 'rem' : '0px',
-              paddingLeft: tagsPx ? tagsPx + 'rem' : '0px',
-              paddingRight: tagsPx ? tagsPx + 'rem' : '0px',
-            }}
+            className={css`
+              display: flex;
+              gap: 0.4rem;
+              margin-top: ${tagsMy ? tagsMy + 'rem' : '0px'};
+              margin-bottom: ${tagsMy ? tagsMy + 'rem' : '0px'};
+              margin-left: ${tagsMx ? tagsMx + 'rem' : '0px'};
+              margin-right: ${tagsMx ? tagsMx + 'rem' : '0px'};
+              padding-top: ${tagsPy ? tagsPy + 'rem' : '0px'};
+              padding-bottom: ${tagsPy ? tagsPy + 'rem' : '0px'};
+              padding-left: ${tagsPx ? tagsPx + 'rem' : '0px'};
+              padding-right: ${tagsPx ? tagsPx + 'rem' : '0px'};
+            `}
           >
             {renderTags(cardTags)}
           </div>
         )}
         {/*card title*/}
         <h1
-          style={{
-            display: 'flex',
-            marginTop: titleMy ? titleMy + 'rem' : '0px',
-            marginBottom: titleMy ? titleMy + 'rem' : '0px',
-            marginLeft: titleMx ? titleMx + 'rem' : '0px',
-            marginRight: titleMx ? titleMx + 'rem' : '0px',
-            fontFamily: cardFont ? cardFont : 'Arial',
-            //@ts-ignore
-            textAlign: titleAlign ? titleAlign : 'left',
-            fontSize: titleSize ? titleSize : '2rem',
-          }}
+          className={css`
+            display: flex;
+            padding-left: ${titlePx ? titlePx + 'rem' : '0px'};
+            padding-right: ${titlePx ? titlePx + 'rem' : '0px'};
+            padding-top: ${titlePy ? titlePy + 'rem' : '0px'};
+            padding-bottom: ${titlePy ? titlePy + 'rem' : '0px'};
+            margin-top: ${titleMy ? titleMy + 'rem' : '0px'};
+            margin-bottom: ${titleMy ? titleMy + 'rem' : '0px'};
+            margin-left: ${titleMx ? titleMx + 'rem' : '0px'};
+            margin-right: ${titleMx ? titleMx + 'rem' : '0px'};
+            font-family: ${cardFont ? cardFont : 'Roboto'};
+            justify-content: ${titleAlign
+              ? textAlignment(titleAlign)
+              : 'flex-start'};
+            font-size: ${titleSize ? titleSize + 'rem' : '2rem'};
+            text-transform: capitalize;
+            font-weight: ${titleWeight ? titleWeight : '700'};
+            font-weight: ${titleWeight ? titleWeight : '700'};
+
+            &:hover {
+              text-decoration: ${titleHover ? 'underline' : 'none'};
+            }
+          `}
         >
           {title && titleLength && title.length > titleLength
             ? textTrimmer(title, titleLength)
@@ -248,33 +319,37 @@ export const Card: React.FC<CardProps> = ({
         {/*card tags option*/}
         {tagsPos === 'middle' && (
           <div
-            style={{
-              display: 'flex',
-              gap: '0.4rem',
-              marginTop: tagsMy ? tagsMy + 'rem' : '0px',
-              marginBottom: tagsMy ? tagsMy + 'rem' : '0px',
-              marginLeft: tagsMx ? tagsMx + 'rem' : '0px',
-              marginRight: tagsMx ? tagsMx + 'rem' : '0px',
-              paddingTop: tagsPy ? tagsPy + 'rem' : '0px',
-              paddingBottom: tagsPy ? tagsPy + 'rem' : '0px',
-              paddingLeft: tagsPx ? tagsPx + 'rem' : '0px',
-              paddingRight: tagsPx ? tagsPx + 'rem' : '0px',
-            }}
+            className={css`
+              display: flex;
+              gap: 0.4rem;
+              margin-top: ${tagsMy ? tagsMy + 'rem' : '0px'};
+              margin-bottom: ${tagsMy ? tagsMy + 'rem' : '0px'};
+              margin-left: ${tagsMx ? tagsMx + 'rem' : '0px'};
+              margin-right: ${tagsMx ? tagsMx + 'rem' : '0px'};
+              padding-top: ${tagsPy ? tagsPy + 'rem' : '0px'};
+              padding-bottom: ${tagsPy ? tagsPy + 'rem' : '0px'};
+              padding-left: ${tagsPx ? tagsPx + 'rem' : '0px'};
+              padding-right: ${tagsPx ? tagsPx + 'rem' : '0px'};
+            `}
           >
             {renderTags(cardTags)}
           </div>
         )}
         {/*card description*/}
         <p
-          style={{
-            fontSize: `${fnSize ? fnSize + 'rem' : '1rem'}`,
-            marginTop: desMy ? desMy + 'rem' : '0px',
-            marginBottom: desMy ? desMy + 'rem' : '10px',
-            marginLeft: desMx ? desMx + 'rem' : '10px',
-            marginRight: desMx ? desMx + 'rem' : '0px',
-            //@ts-ignore
-            textAlign: desAlign ? desAlign : 'left',
-          }}
+          className={css`
+            font-size: ${desSize ? desSize + 'rem' : '1rem'};
+            font-weight: ${desWeight ? desWeight : 400};
+            padding-left: ${desPx ? desPx + 'rem' : '0px'};
+            padding-right: ${desPx ? desPx + 'rem' : '0px'};
+            padding-top: ${desPy ? desPy + 'rem' : '0px'};
+            padding-bottom: ${desPy ? desPy + 'rem' : '0px'};
+            margin-top: ${desMy ? desMy + 'rem' : '0px'};
+            margin-bottom: ${desMy ? desMy + 'rem' : '10px'};
+            margin-left: ${desMy ? desMy + 'rem' : '10px'};
+            margin-right: ${desMx ? desMx + 'rem' : '0px'};
+            text-align: ${desAlign ? desAlign : 'left'};
+          `}
         >
           {desLength && description.length > desLength
             ? textTrimmer(description, desLength)
@@ -284,67 +359,62 @@ export const Card: React.FC<CardProps> = ({
         {/*card button option*/}
         {button && (
           <div
-            style={{
-              display: 'flex',
-              justifyContent: btnPos ? btnPos : 'flex-start',
-              paddingBottom: '1rem',
-            }}
+            className={css`
+              display: flex;
+              justify-content: ${btnPos ? btnPos : 'flex-start'};
+              padding-bottom: 1rem;
+            `}
           >
             <button
-              style={{
-                marginTop: btnMy ? btnMy + 'rem' : '0px',
-                marginBottom: btnMy ? btnMy + 'rem' : '0px',
-                marginLeft: btnMx ? btnMx + 'rem' : '0px',
-                marginRight: btnMx ? btnMx + 'rem' : '0px',
-                paddingTop: btnPy ? btnPy + 'rem' : '0',
-                paddingBottom: btnPy ? btnPy + 'rem' : '0',
-                paddingLeft: btnPx ? btnPx + 'rem' : '0',
-                paddingRight: btnPx ? btnPx + 'rem' : '0',
-                backgroundColor: btnColor,
-                borderRadius: '10px',
-                color: btnText,
-                width: btnLength ? `${btnLength}rem` : '100%',
-                cursor: 'pointer',
-                fontSize: `${btnFnSize ? btnFnSize + 'rem' : '1rem'}`,
-                fontWeight: btnWeight ? btnWeight : 'normal',
-                fontFamily: cardFont ? cardFont : 'Arial',
-                border: btnBorder ? btnBorder : 'none',
-                borderColor: btnBorderCol ? btnBorderCol : 'none',
-              }}
+              className={css`
+                margin-top: ${btnMy ? btnMy + 'rem' : '0px'};
+                margin-bottom: ${btnMy ? btnMy + 'rem' : '0px'};
+                margin-left: ${btnMx ? btnMx + 'rem' : '0px'};
+                margin-right: ${btnMx ? btnMx + 'rem' : '0px'};
+                padding-top: ${btnPy ? btnPy + 'rem' : '0'};
+                padding-bottom: ${btnPy ? btnPy + 'rem' : '0'};
+                padding-left: ${btnPx ? btnPx + 'rem' : '0'};
+                padding-right: ${btnPx ? btnPx + 'rem' : '0'};
+                background-color: ${btnBgColor ? btnBgColor : 'black'};
+                border-radius: 1rem;
+                color: ${btnTxtColor ? btnTxtColor : 'white'};
+                width: ${btnWidth ? btnWidth + 'rem' : '100%'};
+                cursor: pointer;
+                font-size: ${btnFnSize ? btnFnSize + 'rem' : '1rem'};
+                font-weight: ${btnWeight ? btnWeight : '400'};
+                font-family: ${cardFont ? cardFont : 'Roboto'};
+                border: ${btnBorder ? btnBorder + 'rem' : 'none'};
+                border-color: ${btnBorderCol ? btnBorderCol : 'none'};
+
+                &:hover {
+                  color: ${btnHover && btnBgColor ? btnBgColor : btnTxtColor};
+                  background-color: ${btnHover && btnTxtColor
+                    ? btnTxtColor
+                    : btnBgColor};
+                  border: 1px solid
+                    ${btnHover && btnBgColor ? btnBgColor : 'none'};
+                }
+              `}
             >
-              {button}
+              {btnText}
             </button>
           </div>
         )}
         {/*card tags option*/}
         {tagsPos === 'bottom' && (
           <div
-            style={{
-              display: 'flex',
-              gap: '0.4rem',
-              marginTop: tagsMy ? tagsMy + 'rem' : '0px',
-              marginBottom: tagsMy ? tagsMy + 'rem' : '0px',
-              marginLeft: tagsMx ? tagsMx + 'rem' : '0px',
-              marginRight: tagsMx ? tagsMx + 'rem' : '0px',
-              paddingTop: tagsPy ? tagsPy + 'rem' : '0px',
-              paddingBottom: tagsPy ? tagsPy + 'rem' : '0px',
-              paddingLeft: tagsPx ? tagsPx + 'rem' : '0px',
-              paddingRight: tagsPx ? tagsPx + 'rem' : '0px',
-            }}
-          >
-            {renderTags(cardTags)}
-          </div>
-        )}
-        {!tagsPos && cardTags.length > 1 && (
-          <div
-            style={{
-              display: 'flex',
-              gap: '0.4rem',
-              marginTop: tagsMy ? tagsMy + 'rem' : '0px',
-              marginBottom: tagsMy ? tagsMy + 'rem' : '0px',
-              marginLeft: tagsMx ? tagsMx + 'rem' : '0px',
-              marginRight: tagsMx ? tagsMx + 'rem' : '0px',
-            }}
+            className={css`
+              display: flex;
+              gap: 0.4rem;
+              margin-top: ${tagsMy ? tagsMy + 'rem' : '0px'};
+              margin-bottom: ${tagsMy ? tagsMy + 'rem' : '0px'};
+              margin-left: ${tagsMx ? tagsMx + 'rem' : '0px'};
+              margin-right: ${tagsMx ? tagsMx + 'rem' : '0px'};
+              padding-top: ${tagsPy ? tagsPy + 'rem' : '0px'};
+              padding-bottom: ${tagsPy ? tagsPy + 'rem' : '0px'};
+              padding-left: ${tagsPx ? tagsPx + 'rem' : '0px'};
+              padding-right: ${tagsPx ? tagsPx + 'rem' : '0px'};
+            `}
           >
             {renderTags(cardTags)}
           </div>

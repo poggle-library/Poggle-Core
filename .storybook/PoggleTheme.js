@@ -15,7 +15,7 @@ export default create({
   appBorderRadius: 4,
 
   // Typography
-  fontBase: '"Roboto", sans-serif',
+  fontBase: 'Roboto',
   fontCode: 'monospace',
   fontSize: '20px',
 

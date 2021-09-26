@@ -1,0 +1,55 @@
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
+import { Profile } from '../src/';
+
+<Meta title="Components/Profile Pictures" component={Profile} argTypes={{}} />
+
+
+export const Template = (args) => <Profile {...args}/>;
+
+# Basic Profile Image
+As standard within Poggle your profile picture will be fully rounded, with a shadow. As default your profile image will have a `profileShadow` with a `width` and `height` of `10 rem` units.
+
+<Canvas>
+  <Story name="Basic Profile Image" args={{ image: "https://images.pexels.com/photos/4492100/pexels-photo-4492100.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Image Resizing
+You can easily adjust the size of the profile picture by manipulating the `width` and `height` properties.
+
+ <div style={{ display: "flex", gap: "25px", justifyContent: "center", alignItems:"center", marginTop:"50px", marginBottom:"50px"}}>
+   <div style={{display: "flex", flexDirection:"column", alignItems:"center", gap: "10px"}}>
+     <Profile image={"https://images.pexels.com/photos/4492100/pexels-photo-4492100.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"} width={12} height={12} />
+     <h3>12 rem</h3>
+   </div>
+   <div style={{display: "flex", flexDirection:"column", alignItems:"center", gap: "10px"}}>
+     <Profile image={"https://images.pexels.com/photos/4492100/pexels-photo-4492100.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"} />
+     <h3>10 rem</h3>
+   </div>
+   <div style={{display: "flex", flexDirection:"column", alignItems:"center", gap: "10px"}}>
+     <Profile image={"https://images.pexels.com/photos/4492100/pexels-photo-4492100.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"} width={8} height={8} />
+     <h3>8 rem</h3>
+   </div>
+   <div style={{display: "flex", flexDirection:"column", alignItems:"center", gap: "10px"}}>
+     <Profile image={"https://images.pexels.com/photos/4492100/pexels-photo-4492100.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"} width={6} height={6} />
+     <h3>6 rem</h3>
+   </div>
+   <div style={{display: "flex", flexDirection:"column", alignItems:"center", gap: "10px"}}>
+     <Profile image={"https://images.pexels.com/photos/4492100/pexels-photo-4492100.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"} width={4} height={4} />
+     <h3>4 rem</h3>
+   </div>
+   <div style={{display: "flex", flexDirection:"column", alignItems:"center", gap: "10px"}}>
+     <Profile image={"https://images.pexels.com/photos/4492100/pexels-photo-4492100.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"} width={2} height={2} />
+     <h3>2 rem</h3>
+   </div>
+ </div>
+
+# Profile Pictures With Just Letters
+If you wish you can render just profile pictures with a custom background colour and some letters (max 2)
+
+<Canvas>
+  <Story name="Profile With Just Letters" args={{ letters: "JD", lettersBGColor: "purple", lettersTxTColor: "white", width: 8, height: 8}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>

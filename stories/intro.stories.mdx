@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/addon-docs'
-import { Intro } from '../src/';
+import { Intro, Contributors } from '../src/';
 
 <Meta title="Getting Started" component={Intro} argTypes={{}} />
 
@@ -16,7 +16,7 @@ export const Template = (args) => <Intro {...args}/>;
 
 # Introduction
 Poggle is a React Component library aimed at speeding up the development of React websites. Poggle was built using TypeScript, to make it scalable and also minimise errors when developing. Poggle
-has many prebuilt components that allow you to eaily setup a website or project.
+has many prebuilt components that allow you to easily setup a website or project.
 
 The goal of Poggle was to make it easier for freelancers or teams to build and test an idea in under an hour, drastically reducing the development process to validate ideas.
 
@@ -27,7 +27,7 @@ Poggle is currently <b>version 1.0.421</b> - This is still an <b>in-development 
   {Template.bind({})}
 </Story>
 
-## Install Poggle
+# Install Poggle
 You can easily install Poggle from NPM or Yarn using the following commands in your terminal:
 
 ##### NPM
@@ -58,5 +58,25 @@ Poggle was built using the Roboto font, as we found it the most elegant. Please 
   {Template.bind({})}
 </Story>
 
-# Useful Links [IN DEVELOPMENT]
+# Useful Links
 If you're new to Poggle or React, we recommend that you check out these resources to help you get better acquainted to the Poggle eco-system.
+
+<ul>
+  <li><a href="#">Poggle For Beginners (in-development)</a></li>
+  <li><a href="https://discord.gg/ZA436cCJGa">Poggle Library's Discord Community</a></li>
+  <li><a href="https://www.youtube.com/watch?v=hdI2bqOjy3c">Traversy Media's Javascript Crash Course</a></li>
+  <li><a href="https://www.youtube.com/watch?v=Dorf8i6lCuk">Academind's 2021 React Crash Course for Beginners</a></li>
+  <li><a href="https://nodesource.com/blog/an-absolute-beginners-guide-to-using-npm/">An Absolute Beginners Guide To Using NPM</a></li>
+  <li><a href="https://www.whitesourcesoftware.com/free-developer-tools/blog/npm-vs-yarn-which-should-you-choose/">Yarn Vs NPM, Which Package Manager Should You Use?</a></li>
+</ul>
+
+<br /><br/>
+
+<Story name='Contributors' args={{}}>
+  {Template.bind({})}
+</Story>
+
+# Contributors
+A special thanks to all the special people who have [donated to our patreon](https://www.patreon.com/poggle_library) or who have helped with the development of Poggle. Below you can see a list of our contributors.
+
+<Contributors />

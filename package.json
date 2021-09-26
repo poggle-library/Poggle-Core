@@ -3,16 +3,6 @@
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "keywords": [
-    "React",
-    "TypeScript",
-    "React Components",
-    "React Component Library",
-    "React-Components",
-    "React-Component-Library",
-    "Javascript",
-    "@Poggle"
-  ],
   "files": [
     "dist",
     "src"
@@ -46,6 +36,16 @@
     "trailingComma": "es5"
   },
   "name": "@poggle/core",
+  "keywords": [
+    "React",
+    "TypeScript",
+    "React Components",
+    "React Component Library",
+    "React-Components",
+    "React-Component-Library",
+    "Javascript",
+    "@Poggle"
+  ],
   "author": "Nick Morgan",
   "module": "dist/core.esm.js",
   "size-limit": [
