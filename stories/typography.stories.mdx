@@ -1,0 +1,62 @@
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
+import { Text, FlexCol, Red, Black, Pink  } from "../src";
+
+<Meta title="Styling/Typography" component={Text} />
+
+export const Template = (args) => <Text {...args}/>;
+
+<Story name="Intro" args={{}}>
+  {Template.bind({})}
+</Story>
+
+# Typography
+Typography is very important to how to style the content displayed on your page. In this component you'll be able to easily use the type of text you wish to use within your component. When you want to
+use Poggle's Typography component, simply make a `Text` component. You will need to set a `variant` property to set the type of text you wish to display.
+
+By default, the font will inherit of declared font for each class. However, if you have not set this up it will default to Poggles default of [Roboto](https://fonts.google.com/specimen/Roboto).
+
+<Canvas>
+  <FlexCol>
+    <Text variant={"h1"}>This is a h1</Text>
+    <Text variant={"h2"}>This is a h2</Text>
+    <Text variant={"h3"}>This is a h3</Text>
+    <Text variant={"h4"}>This is a h4</Text>
+    <Text variant={"h5"}>This is a h5</Text>
+    <Text variant={"h6"}>This is a h6</Text>
+    <Text variant={"p"}>This is a p</Text>
+    <Text variant={"span"}>This is a span</Text>
+  </FlexCol>
+</Canvas>
+
+<br /><br/>
+
+<Story name="Typography Customization" args={{}}>
+  {Template.bind({})}
+</Story>
+
+# Typography Customization
+Within Poggle you can setup custom variables to style your typography how you wish. You can set the vertical margins & paddings using `My` or `Py` respectively. You can also set the horizontal margins & paddings using `Mx` or `Px` respectively.
+You may also use a custom font with the `fontFamily` property. You can edit the size or weight with `fontSize` or `fontWeight` respectively.
+
+Last but not least, you can edit the text colour using the `textColor` property. We recommend using [Poggles Colour library](/docs/styling-colours--intro).
+
+<Canvas>
+  <Text variant="h1" fontSize={5} My={2} textColor={Red['500']}>This is a h1</Text>
+</Canvas>
+
+The final thing you can do is add hover effects to your typography. Simply enable hover with the `textHover` property and set the hover text colour with `textHoverColor`. If you just enable `textHover` your text will just have a cursor-pointer.
+
+<Canvas>
+  <Text variant="h1" fontSize={10} My={2} textColor={Black} textHover={true} textHoverColor={Pink['500']}>This is a h1</Text>
+</Canvas>
+
+<br/><br/>
+
+<Story name="Typography Props" args={{}}>
+  {Template.bind({})}
+</Story>
+
+# Typography Properties
+This is the table for all the properties that you can use with the typography component.
+
+<ArgsTable for={Text} />
