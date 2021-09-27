@@ -1,0 +1,177 @@
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
+import { Flex, FlexCol, Grid } from "../src"; import { createElement } from 'react';
+
+<Meta title="Styling/Containers" component={Flex} argTypes={{
+}} />
+
+export const Template = (args) => <Flex {...args}/>;
+export const Template2 = (args) => <FlexCol {...args}/>;
+export const Template3 = (args) => <Grid {...args}/>;
+
+# Containers
+Poggle comes with built in standard containers. This containers replace `div` tags on your projects should you wish to use them. You can easily customise these containers with ease. Let's have a look at the
+most basic container, a `Flex` container.
+
+<br /><br/>
+
+## Flex Container
+Flex containers are simply a container that holds your code in a `flex-direction: row`.
+
+<Canvas>
+  <Story name="Flex Container" args={{children: "I am a flex container!"}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+Flex containers can pass custom children props and styling props to themselves using the `customProps` property. Simply write out the custom css you would like if you need a specific styling, for example:
+
+`background-color: #778beb; color: white; padding: 2rem; border-radius: 1rem; width: 25rem; text-align: center;`
+
+<Canvas>
+  <Flex customProps={"background-color: #778beb; color: white; padding: 2rem; border-radius: 1rem; width: 25rem; text-align: center;"}>
+    <h1>Hello, This Is A Flex Container!</h1>
+  </Flex>
+</Canvas>
+
+### Remember the goal of poggle is to make things easier to build BUT not take away any functionality from the user.
+
+<br/> <br/>
+
+<Story name="Flex Column Container" args={{}}>
+  {Template.bind({})}
+</Story>
+
+## Flex Column Container
+Flex Column containers are simply a container that holds your code in a `flex-direction: column`. The same properties that are available in the `Flex` component are available for the `FlexCol` component.
+
+for the example below I have styled these components using inline styling, but this will work with any children you pass with custom `className`: `CSS`, `SCSS`, `TailwindCSS`, `JSInCSS` or `whatever` styling convention you use.
+
+<Canvas>
+    <FlexCol spacing={2}>
+      <Flex customProps="padding: 2rem; background-color:#778beb; color: white;">
+        <h1>Col 1</h1>
+      </Flex>
+      <Flex customProps="padding: 2rem; background-color:#a55eea; color: white;">
+        <h1>Col 2</h1>
+      </Flex>
+    </FlexCol>
+</Canvas>
+
+<br /> <br />
+
+<Story name="Grid Containers" args={{}}>
+  {Template.bind({})}
+</Story>
+
+# Grid Containers
+Much like `Flex` and `FlexCol`, `Grid` is simply a container that holds your code in a grid component. There are slighty different properties for this prop as you may choose to set your `gridCol`
+or `gridRow`.
+
+I'll be using inline styles again for this example.
+
+<Canvas>
+  <Grid gridCol={4} gridRow={2} spacing={1}>
+    <Flex justify="center" align="center" customProps="padding: 4rem; background-color: red; color: white;"><h2>1</h2></Flex>
+    <Flex justify="center" align="center" customProps="padding: 4rem; background-color: black; color: white;"><h2>2</h2></Flex>
+    <Flex  justify="center" align="center" customProps="padding: 4rem; background-color: green; color: white;"><h2>3</h2></Flex>
+    <Flex justify="center" align="center" customProps="padding: 4rem; background-color: orange; color: white;"><h2>4</h2></Flex>
+    <Flex  justify="center" align="center" customProps="padding: 4rem; background-color: purple; color: white;"><h2>5</h2></Flex>
+    <Flex  justify="center" align="center" customProps="padding: 4rem; background-color: pink; color: white;"><h2>6</h2></Flex>
+    <Flex  justify="center" align="center" customProps="padding: 4rem; background-color: indigo; color: white;"><h2>7</h2></Flex>
+    <Flex  justify="center" align="center" customProps="padding: 4rem; background-color: gray; color: white;"><h2>8</h2></Flex>
+  </Grid>
+</Canvas>
+
+Grid Containers will scale the to `gridCol` and `gridRow` you input. the default is set to 2 on both.
+
+<br/> <br/>
+
+<Story name="Container Width & Height" args={{}}>
+  {Template.bind({})}
+</Story>
+
+# Container Width & Height
+You can easily set the `width` and `height` of your container using rem units.
+
+<Canvas>
+  <Flex spacing={2}>
+    <Flex width={5} customProps="padding: 2rem; background-color:#778beb; color: white;">
+      <h1>Item 1</h1>
+    </Flex>
+    <Flex width={5} customProps="padding: 2rem; background-color:#a55eea; color: white;">
+      <h1>Item 2</h1>
+    </Flex>
+  </Flex>
+</Canvas>
+
+<br/> <br/>
+
+<Story name="Container Shadows" args={{}}>
+  {Template.bind({})}
+</Story>
+
+# Hover Effects & Shadow
+By default, containers do not have a shadow or hover shadow effect by default. However if you wish to enable these you can via the `hasShadow` & `hasHover` properties.
+
+Below you can see 2 flex containers nested inside a flex container (Cool right?). One has a hover shadow and the other has a shadow by default.
+
+<Canvas>
+  <Flex spacing={2}>
+    <Flex hasShadow={true} customProps="padding: 5rem; background-color: purple; color: white;"><h2>Box With A Shadow</h2></Flex>
+    <Flex hasHover={true} customProps="padding: 5rem; background-color: blue; color: white; cursor-pointer;"><h2>Box With A Hover Effect</h2></Flex>
+  </Flex>
+</Canvas>
+
+
+<br/><br/>
+
+<Story name="Container Alignment" args={{}}>
+  {Template.bind({})}
+</Story>
+
+# Container Alignment
+You can align your containers vertically using the `align` property and horizontally using the `justify` property. These components will only take `start`, `center` or `end`. By default, these are null.
+
+<Canvas>
+  <Grid gridRow={2} gridCol={3} spacing={1}>
+     <Flex justify="start" customProps="height: 2.5rem;  padding: 1rem; background-color: #a55eea; color: white; text-transform:capitalize;"> justify start</Flex>
+    <Flex justify="center" customProps="height: 2.5rem;  padding: 1rem; background-color: #45aaf2; color: white; text-transform:capitalize;"> justify center</Flex>
+    <Flex justify="end" customProps="height: 2.5rem;  padding: 1rem; background-color: #26de81; color: white; text-transform:capitalize;"> justify end</Flex>
+    <Flex align="start" customProps="height: 5rem; padding: 1rem; background-color: #a55eea; color: white; text-transform:capitalize;"> align start</Flex>
+    <Flex align="center" customProps="height: 5rem;  padding: 1rem; background-color: #45aaf2; color: white; text-transform:capitalize;"> align center</Flex>
+    <Flex align="end" customProps="height: 5rem;   padding: 1rem; background-color: #26de81; color: white; text-transform:capitalize;"> align end</Flex>
+  </Grid>
+</Canvas>
+
+<br/><br/>
+
+<Story name="Flex Properties" args={{}}>
+  {Template.bind({})}
+</Story>
+
+# Flex Properties
+See all the properties included in the Flex container.
+
+<ArgsTable of={Flex} />
+
+<br/><br/>
+
+<Story name="Flex Column Properties" args={{}}>
+  {Template.bind({})}
+</Story>
+
+# Flex Column Properties
+See all the properties included in the Flex Column container.
+
+<ArgsTable of={FlexCol} />
+
+<br/><br/>
+
+<Story name="Grid Properties" args={{}}>
+  {Template.bind({})}
+</Story>
+
+# Grid Properties
+See all the properties included in the Grid container.
+
+<ArgsTable of={Grid} />

@@ -39,6 +39,7 @@ export const Contributors: React.FC<ContributorsProps> = () => {
               flex-direction: column;
               margin: 20px 0;
               width: 100%;
+              font-family: inherit;
             `}
           >
             <a
@@ -64,7 +65,6 @@ export const Contributors: React.FC<ContributorsProps> = () => {
                   font-size: 28px;
                   color: #313131;
                   font-weight: bold;
-                  font-family: Roboto;
                   margin: 0;
                   padding-top: 10px;
                 `}
@@ -78,7 +78,6 @@ export const Contributors: React.FC<ContributorsProps> = () => {
                   line-height: 20px;
                   font-weight: bold;
                   text-align: center;
-                  font-family: Roboto;
                 `}
               >
                 {person.position}

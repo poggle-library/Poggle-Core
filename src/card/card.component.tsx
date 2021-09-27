@@ -163,7 +163,6 @@ export const Card: React.FC<CardProps> = ({
                     text-transform: capitalize;
                     font-size: 1rem;
                     font-weight: ${tagWeight ? tagWeight : '500'};
-                    font-family: ${cardFont ? cardFont : 'Roboto'};
                     &:hover {
                       color: ${tagsHover && tagsBgColor
                         ? tagsBgColor
@@ -211,6 +210,7 @@ export const Card: React.FC<CardProps> = ({
           ? '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
           : ''};
         cursor: pointer;
+        font-family: ${cardFont ? cardFont : 'inherit'};
 
         &:hover {
           box-shadow: ${cardHoverShadow
@@ -298,13 +298,11 @@ export const Card: React.FC<CardProps> = ({
             margin-bottom: ${titleMy ? titleMy + 'rem' : '0px'};
             margin-left: ${titleMx ? titleMx + 'rem' : '0px'};
             margin-right: ${titleMx ? titleMx + 'rem' : '0px'};
-            font-family: ${cardFont ? cardFont : 'Roboto'};
             justify-content: ${titleAlign
               ? textAlignment(titleAlign)
               : 'flex-start'};
             font-size: ${titleSize ? titleSize + 'rem' : '2rem'};
             text-transform: capitalize;
-            font-weight: ${titleWeight ? titleWeight : '700'};
             font-weight: ${titleWeight ? titleWeight : '700'};
 
             &:hover {
@@ -382,7 +380,6 @@ export const Card: React.FC<CardProps> = ({
                 cursor: pointer;
                 font-size: ${btnFnSize ? btnFnSize + 'rem' : '1rem'};
                 font-weight: ${btnWeight ? btnWeight : '400'};
-                font-family: ${cardFont ? cardFont : 'Roboto'};
                 border: ${btnBorder ? btnBorder + 'rem' : 'none'};
                 border-color: ${btnBorderCol ? btnBorderCol : 'none'};
 
