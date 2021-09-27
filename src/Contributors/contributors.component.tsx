@@ -1,7 +1,7 @@
 import React from 'react';
-import { css } from '@emotion/css';
 
-import { Profile } from '../index';
+// @ts-ignore
+import { Grid, Text, Profile, FlexCol, Flex, Purple } from '../index';
 
 export interface ContributorsProps {}
 
@@ -10,7 +10,7 @@ export const Contributors: React.FC<ContributorsProps> = () => {
     {
       name: 'Nick Morgan',
       position: '@Poggle Founder & Developer',
-      link: 'https://github.com/GhostCrawl3r',
+      link: 'https://twitter.com/The_NickMorgan',
       profileUrl:
         'https://res.cloudinary.com/poggle/image/upload/v1632605360/59952732_10213518319370267_5546427844436951040_n_1_hn4sqd.jpg',
     },
@@ -22,70 +22,24 @@ export const Contributors: React.FC<ContributorsProps> = () => {
         'https://res.cloudinary.com/poggle/image/upload/v1632606268/9_IEP6gI_400x400_o99mz7.jpg',
     },
   ];
+
   return (
-    <div
-      className={css`
-        display: flex;
-        flex-direction: row;
-        gap: 50px;
-      `}
-    >
+    <Grid gridCol={2} gridRow={1} spacing={2} customProps="margin-top:2rem;">
       {people.map((person, index) => {
         return (
-          <div
-            key={index}
-            className={css`
-              display: flex;
-              flex-direction: column;
-              margin: 20px 0;
-              width: 100%;
-              font-family: inherit;
-            `}
-          >
-            <a
-              href={person.link}
-              className={css`
-                text-decoration: none;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: center;
-                object-fit: cover;
-                padding: 10px;
-                &:hover {
-                  text-decoration: underline;
-                  border-radius: 20px;
-                  background-color: rgba(74, 26, 99, 0.22);
-                }
-              `}
-            >
-              <Profile image={person.profileUrl} />
-              <h1
-                className={css`
-                  font-size: 28px;
-                  color: #313131;
-                  font-weight: bold;
-                  margin: 0;
-                  padding-top: 10px;
-                `}
-              >
+          <Text variant="a" to={person.link} key={index}>
+            <FlexCol align="center">
+              <Profile image={person.profileUrl} width={10} height={10} />
+              <Text variant="h4" My={0.5}>
                 {person.name}
-              </h1>
-              <p
-                className={css`
-                  font-size: 18px;
-                  color: #820dc5;
-                  line-height: 20px;
-                  font-weight: bold;
-                  text-align: center;
-                `}
-              >
+              </Text>
+              <Text variant="h6" textColor={Purple['500']}>
                 {person.position}
-              </p>
-            </a>
-          </div>
+              </Text>
+            </FlexCol>
+          </Text>
         );
       })}
-    </div>
+    </Grid>
   );
 };

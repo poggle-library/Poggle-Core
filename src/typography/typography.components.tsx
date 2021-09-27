@@ -15,6 +15,7 @@ export interface TextProps {
   Px?: number;
   Py?: number;
   customProps?: any;
+  to?: string;
 }
 
 export const Text: React.FC<TextProps> = ({
@@ -31,6 +32,7 @@ export const Text: React.FC<TextProps> = ({
   Px = 0,
   Py = 0,
   customProps = null,
+  to = null,
 }) => {
   const handleVariant = (type: string) => {
     if (type === 'h1') {
@@ -49,6 +51,7 @@ export const Text: React.FC<TextProps> = ({
             padding-bottom: ${Py ? Py + 'rem' : 0};
             padding-left: ${Px ? Px + 'rem' : 0};
             padding-right: ${Px ? Px + 'rem' : 0};
+            cursor: inherit;
             ${customProps && customProps}
 
             &:hover {
@@ -78,6 +81,7 @@ export const Text: React.FC<TextProps> = ({
             padding-bottom: ${Py ? Py + 'rem' : 0};
             padding-left: ${Px ? Px + 'rem' : 0};
             padding-right: ${Px ? Px + 'rem' : 0};
+            cursor: inherit;
             ${customProps && customProps}
 
             &:hover {
@@ -107,6 +111,7 @@ export const Text: React.FC<TextProps> = ({
             padding-bottom: ${Py ? Py + 'rem' : 0};
             padding-left: ${Px ? Px + 'rem' : 0};
             padding-right: ${Px ? Px + 'rem' : 0};
+            cursor: inherit;
             ${customProps && customProps}
 
             &:hover {
@@ -136,6 +141,7 @@ export const Text: React.FC<TextProps> = ({
             padding-bottom: ${Py ? Py + 'rem' : 0};
             padding-left: ${Px ? Px + 'rem' : 0};
             padding-right: ${Px ? Px + 'rem' : 0};
+            cursor: inherit;
             ${customProps && customProps}
 
             &:hover {
@@ -165,6 +171,7 @@ export const Text: React.FC<TextProps> = ({
             padding-bottom: ${Py ? Py + 'rem' : 0};
             padding-left: ${Px ? Px + 'rem' : 0};
             padding-right: ${Px ? Px + 'rem' : 0};
+            cursor: inherit;
             ${customProps && customProps}
 
             &:hover {
@@ -194,6 +201,7 @@ export const Text: React.FC<TextProps> = ({
             padding-bottom: ${Py ? Py + 'rem' : 0};
             padding-left: ${Px ? Px + 'rem' : 0};
             padding-right: ${Px ? Px + 'rem' : 0};
+            cursor: inherit;
             ${customProps && customProps}
 
             &:hover {
@@ -223,6 +231,7 @@ export const Text: React.FC<TextProps> = ({
             padding-bottom: ${Py ? Py + 'rem' : 0};
             padding-left: ${Px ? Px + 'rem' : 0};
             padding-right: ${Px ? Px + 'rem' : 0};
+            cursor: inherit;
             ${customProps && customProps}
 
             &:hover {
@@ -252,6 +261,7 @@ export const Text: React.FC<TextProps> = ({
             padding-bottom: ${Py ? Py + 'rem' : 0};
             padding-left: ${Px ? Px + 'rem' : 0};
             padding-right: ${Px ? Px + 'rem' : 0};
+            cursor: inherit;
             ${customProps && customProps}
 
             &:hover {
@@ -264,6 +274,37 @@ export const Text: React.FC<TextProps> = ({
         >
           {children}
         </span>
+      );
+    } else if (type === 'a') {
+      return (
+        <a
+          className={css`
+            font-family: ${fontFamily ? fontFamily : 'inherit'};
+            font-size: ${fontSize ? fontSize : '1rem'};
+            font-weight: ${fontWeight ? fontWeight : 400};
+            color: ${textColor ? textColor : 'inherit'};
+            margin-top: ${My ? My + 'rem' : 0};
+            margin-bottom: ${My ? My + 'rem' : 0};
+            margin-left: ${Mx ? Mx + 'rem' : 0};
+            margin-right: ${Mx ? Mx + 'rem' : 0};
+            padding-top: ${Py ? Py + 'rem' : 0};
+            padding-bottom: ${Py ? Py + 'rem' : 0};
+            padding-left: ${Px ? Px + 'rem' : 0};
+            padding-right: ${Px ? Px + 'rem' : 0};
+            text-decoration: none;
+            cursor: pointer;
+            ${customProps && customProps}
+
+            &:hover {
+              color: ${textHover && textHoverColor
+                ? textHoverColor
+                : textColor};
+            }
+          `}
+          href={to ? to : ''}
+        >
+          {children}
+        </a>
       );
     } else {
       return (
@@ -287,7 +328,7 @@ export const Text: React.FC<TextProps> = ({
               color: ${textHover && textHoverColor
                 ? textHoverColor
                 : textColor};
-              cursor: ${textHover ? 'pointer' : 'default'};
+              cursor: ${textHover || to ? 'pointer' : 'default'};
             }
           `}
         >

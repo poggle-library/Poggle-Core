@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/css';
 
 export interface FlexProps {
-  children?: React.ReactChild;
+  children?: React.ReactChild | any;
   spacing?: number;
   customProps?: any;
   hasShadow?: boolean;
@@ -49,6 +49,7 @@ export const Flex: React.FC<FlexProps> = ({
         align-items: ${align ? handleAlignment(align) : 'none'};
         width: ${width > 0 ? width + 'rem' : 'auto'};
         height: ${height > 0 ? height + 'rem' : 'auto'};
+        cursor: inherit;
 
         &:hover {
           box-shadow: ${hasHover ? '2px 0px 9px 5px rgba(0,0,0,0.35)' : ''};
@@ -78,6 +79,8 @@ export const FlexCol: React.FC<FlexProps> = ({
       return 'center';
     } else if (direction === 'end') {
       return 'flex-end';
+    } else if (direction === 'between') {
+      return 'space-between';
     } else {
       return null;
     }
@@ -96,6 +99,7 @@ export const FlexCol: React.FC<FlexProps> = ({
         align-items: ${align ? handleAlignment(align) : 'none'};
         width: ${width > 0 ? width + 'rem' : 'auto'};
         height: ${height > 0 ? height + 'rem' : 'auto'};
+        cursor: inherit;
 
         &:hover {
           box-shadow: ${hasHover ? '2px 0px 9px 5px rgba(0,0,0,0.35)' : ''};
@@ -108,7 +112,7 @@ export const FlexCol: React.FC<FlexProps> = ({
 };
 
 export interface GridProps {
-  children?: React.ReactChild;
+  children?: React.ReactChild | any;
   spacing?: number;
   customProps?: any;
   gridCol?: number;
@@ -139,6 +143,8 @@ export const Grid: React.FC<GridProps> = ({
       return 'center';
     } else if (direction === 'end') {
       return 'flex-end';
+    } else if (direction === 'between') {
+      return 'space-between';
     } else {
       return null;
     }
@@ -154,6 +160,7 @@ export const Grid: React.FC<GridProps> = ({
         align-items: ${align ? handleAlignment(align) : 'none'};
         width: ${width > 0 ? width + 'rem' : 'auto'};
         height: ${height > 0 ? height + 'rem' : 'auto'};
+        cursor: inherit;
         ${customProps ? customProps : ''}
       `}
     >
