@@ -1,5 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
-import { Flex, FlexCol, Grid } from "../src"; import { createElement } from 'react';
+import { Flex, FlexCol, Grid } from "../src";
 
 <Meta title="Styling/Containers" component={Flex} argTypes={{
 }} />
@@ -134,12 +134,12 @@ You can align your containers vertically using the `align` property and horizont
 
 <Canvas>
   <Grid gridRow={2} gridCol={3} spacing={1}>
-     <Flex justify="start" customProps="height: 2.5rem;  padding: 1rem; background-color: #a55eea; color: white; text-transform:capitalize;"> justify start</Flex>
-    <Flex justify="center" customProps="height: 2.5rem;  padding: 1rem; background-color: #45aaf2; color: white; text-transform:capitalize;"> justify center</Flex>
-    <Flex justify="end" customProps="height: 2.5rem;  padding: 1rem; background-color: #26de81; color: white; text-transform:capitalize;"> justify end</Flex>
-    <Flex align="start" customProps="height: 5rem; padding: 1rem; background-color: #a55eea; color: white; text-transform:capitalize;"> align start</Flex>
-    <Flex align="center" customProps="height: 5rem;  padding: 1rem; background-color: #45aaf2; color: white; text-transform:capitalize;"> align center</Flex>
-    <Flex align="end" customProps="height: 5rem;   padding: 1rem; background-color: #26de81; color: white; text-transform:capitalize;"> align end</Flex>
+    <Flex justify="start" height={2.5} customProps="padding: 1rem; background-color: #a55eea; color: white; text-transform:capitalize;"> justify start</Flex>
+    <Flex justify="center" height={2.5} customProps="padding: 1rem; background-color: #45aaf2; color: white; text-transform:capitalize;"> justify center</Flex>
+    <Flex justify="end" height={2.5} customProps="padding: 1rem; background-color: #26de81; color: white; text-transform:capitalize;"> justify end</Flex>
+    <Flex align="start" height={5} customProps="padding: 1rem; background-color: #a55eea; color: white; text-transform:capitalize;"> align start</Flex>
+    <Flex align="center" height={5}  customProps="padding: 1rem; background-color: #45aaf2; color: white; text-transform:capitalize;"> align center</Flex>
+    <Flex align="end" height={5}  customProps="padding: 1rem; background-color: #26de81; color: white; text-transform:capitalize;"> align end</Flex>
   </Grid>
 </Canvas>
 
