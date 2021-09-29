@@ -73,3 +73,9 @@ export const Button: React.FC<inputProps> = ({
     </button>
   );
 };
+
+export interface inputProps {}
+
+export const Input: React.FC<inputProps> = ({}) => {
+  return <div>h1</div>;
+};
