@@ -1,5 +1,5 @@
 {
-  "version": "1.0.223",
+  "version": "1.0.24",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -22,8 +22,8 @@
     "build-storybook": "build-storybook"
   },
   "publishConfig": {
-  "registry":"git://github.com/poggle-library/Poggle-Core"
-},
+    "registry": "git://github.com/poggle-library/Poggle-Core"
+  },
   "peerDependencies": {
     "react": ">=16"
   },
