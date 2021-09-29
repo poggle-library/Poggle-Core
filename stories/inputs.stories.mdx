@@ -1,0 +1,59 @@
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
+import { Button  } from "../src";
+
+<Meta title="Components/Inputs" component={Button}  argTypes={{
+  onClick: {
+    action: 'clicked',
+    description: "Use this property if you'd like to set an action for the button."
+  },
+  children:{
+    control: {
+      type: "text"
+    },
+    description:"test......"
+  },
+}}/>
+
+export const Template = (args) => <Button {...args}/>;
+
+<Story name="Introduction" args={{}}>
+</Story>
+
+# Poggle Inputs
+Poggle comes with a lot of pre-designed input buttons, fields and features that will help speed up your development.
+
+<br/><br/>
+
+<Story name="Buttons" args={{}}>
+</Story>
+
+# Basic Button
+Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec sollicitudin molestie malesuada.
+
+<Canvas>
+  <Button>Read More</Button>
+</Canvas>
+
+<br/><br/>
+
+# Hover Effects
+Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla porttitor accumsan tincidunt.
+
+<Canvas>
+  <div></div>
+</Canvas>
+
+<br/><br/>
+
+# Create A Button
+Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla porttitor accumsan tincidunt.
+
+<Canvas>
+  <Story name="Create A Button" args={{}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Create A Button" />
+
+<br/><br/>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // @ts-ignore
-import { Grid, Text, Profile, FlexCol, Flex, Purple } from '../index';
+import { Grid, Text, Profile, FlexCol, Card, Purple } from '../index';
 
 export interface ContributorsProps {}
 
@@ -28,15 +28,17 @@ export const Contributors: React.FC<ContributorsProps> = () => {
       {people.map((person, index) => {
         return (
           <Text variant="a" to={person.link} key={index}>
-            <FlexCol align="center">
-              <Profile image={person.profileUrl} width={10} height={10} />
-              <Text variant="h4" My={0.5}>
-                {person.name}
-              </Text>
-              <Text variant="h6" textColor={Purple['500']}>
-                {person.position}
-              </Text>
-            </FlexCol>
+            <Card cardRadius={1.2} cardHoverShadow>
+              <FlexCol align="center">
+                <Profile image={person.profileUrl} width={10} height={10} />
+                <Text variant="h4" My={0.5}>
+                  {person.name}
+                </Text>
+                <Text variant="h6" textColor={Purple['500']}>
+                  {person.position}
+                </Text>
+              </FlexCol>
+            </Card>
           </Text>
         );
       })}

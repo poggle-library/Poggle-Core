@@ -7,3 +7,4 @@ export * from './containers/containers.container';
 export * from './colours/index.js';
 export * from './typography/typography.components';
 export * from './icons/icons.components';
+export * from './inputs/inputs.components';

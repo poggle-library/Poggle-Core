@@ -1,7 +1,10 @@
 import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
-import { Card } from "../src";
+import { Card, Flex, FlexCol, Profile, Purple, Black, White, Text} from "../src";
 
 <Meta title="Components/Cards" component={Card} argTypes={{
+  children: {
+    description: "If you want to render your own custom code within the card component, just add your code between the card tags"
+  },
   width: {
     control: {
       type: 'range'
@@ -310,7 +313,7 @@ This is perhaps the most basic card you can have within Poggle. This card by def
 Poggle automatically limits your `description` length to 200 characters, you can change this by changing the `desLength` prop within the component. You can also change the font family by editing the
 `cardFont` prop for all items. You may also edit the `description` font size by using the `fnSize` prop, the `desSize` is rendered using rem not px, so just enter a value, for example 2.
 
-Additionally you can edit your cards `width` and `height`. By default the `width` is set to 25rem and the height is auto.
+Additionally, you can edit your cards `width` and `height`. By default the `width` is set to 25rem and the height is auto.
 
 <Canvas>
     <Story name="Basic Card With Props" args={{
@@ -322,6 +325,30 @@ Additionally you can edit your cards `width` and `height`. By default the `width
         {Template.bind({})}
     </Story>
 </Canvas>
+
+<br/><br/>
+
+<Story name="Basic Card With Children" args={{
+}}>
+</Story>
+
+# Basic Card With Children
+Finally, you can add your own custom code as `children` for this component and they will render for you. Not this won't work well with the other properties.
+
+<Canvas>
+  <Card width="30" cardRadius={1}>
+    <Flex spacing={2} align="center">
+      <Profile image="https://images.pexels.com/photos/1149019/pexels-photo-1149019.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" width={10} height={10} />
+     <FlexCol>
+       <Text variant="h4" fontWeight={600}>Jane Doe</Text>
+       <Text variant="p" textColor={Purple['500']}>Senior Marketing Exec</Text>
+       <Text variant="p">Donec rutrum congue leo eget malesuada...</Text>
+     </FlexCol>
+    </Flex>
+  </Card>
+</Canvas>
+
+<br/><br/>
 
 # Card With An Image
 Within Poggle you can easily customise a card component to include an `image`. You can add information to the card using the `description` attribute as shown above. But you may also want an eye catching
@@ -337,6 +364,8 @@ You can also limit the amount of characters a title can render using the `titleL
         description: "Here like above, I can add my own description to this card component.",
     }}>{Template.bind({})}</Story>
 </Canvas>
+
+<br/><br/>
 
 # Card With Tags
 Within Poggle you can dynamically add tags to your `Card` component. You can add tags in an array by using the `cardTags` property. By default, you're limited to 4 tags per card.
@@ -356,10 +385,12 @@ By default your tags have a gray background and a black text colour. You can eas
         title: "A Card With Tags",
         description: "Here like above, I can add my own description to this card component.",
         cardTags: ["Tag 1", "Tag 2", "Tag 3", "Tag 4"],
-        tagsBgColor: "black",
-        tagsTxtColor: "white",
+        tagsBgColor: Black,
+        tagsTxtColor: White,
     }}>{Template.bind({})}</Story>
 </Canvas>
+
+<br/><br/>
 
 
 # Responsive Cards
@@ -379,6 +410,8 @@ By default all `cards` have build in responsive defaults. To override these defa
     mdWidth: 33,
   }}>{Template.bind({})}</Story>
 </Canvas>
+
+<br/><br/>
 
 # Blog Post
 Within Poggle you can easily render a blog component with ease, with a full range of customisable content to make your blog post unique. Simply set the `button` property to true and add your own
@@ -401,6 +434,8 @@ You can customise your button further with additional props like `btnTxtColor`, 
     }}>{Template.bind({})}</Story>
 </Canvas>
 
+<br/><br/>
+
 # A Card With Hover Effects
 Poggle has the ability to add custom hover effects to components on your card to give it that extra visual effect. The `cardHoverShadow` property adds an enlarged shadow to your card to show that it's highlighting that specific card.
 The `tagsHover` and `btnHover` properties inverse the colours of your tags and button. The `titleHover` property, underlines your title on the card.
@@ -422,6 +457,8 @@ The `tagsHover` and `btnHover` properties inverse the colours of your tags and b
     btnHover: true,
   }}>{Template.bind({})}</Story>
 </Canvas>
+
+<br/><br/>
 
 # Create A Custom Card
 In this section you can play around with the component and all it's properties. Allowing you to create the exact card you want to have and copy the code.

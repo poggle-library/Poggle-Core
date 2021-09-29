@@ -4,6 +4,7 @@ import { css } from '@emotion/css';
 import { Bp } from '../breakpoints';
 
 export interface CardProps {
+  children?: any;
   cardRadius?: number;
   cardShadow?: boolean;
   cardHoverShadow?: boolean;
@@ -28,7 +29,7 @@ export interface CardProps {
   titleMy?: number;
   titlePx?: number;
   titlePy?: number;
-  description: string;
+  description?: string;
   desAlign?: string;
   desLength?: number;
   desWeight?: number;
@@ -37,7 +38,7 @@ export interface CardProps {
   desPy?: number;
   desPx?: number;
   button?: boolean;
-  btnText: string;
+  btnText?: string;
   btnBgColor?: string;
   btnTxtColor?: string;
   btnPx?: number;
@@ -68,7 +69,21 @@ export interface CardProps {
   contentMy?: number;
 }
 
+const textAlignment = (direction: string) => {
+  switch (direction) {
+    case 'left':
+      return 'center';
+    case 'center':
+      return 'center';
+    case 'right':
+      return 'right';
+    default:
+      return null;
+  }
+};
+
 export const Card: React.FC<CardProps> = ({
+  children,
   cardRadius = '0',
   cardShadow = true,
   cardHoverShadow = false,
@@ -187,18 +202,6 @@ export const Card: React.FC<CardProps> = ({
     }
   };
 
-  const textAlignment = (direction: string) => {
-    if (direction === 'left') {
-      return 'flex-start';
-    } else if (direction === 'center') {
-      return 'center';
-    } else if (direction === 'right') {
-      return 'flex-end';
-    } else {
-      return null;
-    }
-  };
-
   return (
     <div
       className={css`
@@ -286,6 +289,7 @@ export const Card: React.FC<CardProps> = ({
             {renderTags(cardTags)}
           </div>
         )}
+        {children}
         {/*card title*/}
         <h1
           className={css`
@@ -298,9 +302,7 @@ export const Card: React.FC<CardProps> = ({
             margin-bottom: ${titleMy ? titleMy + 'rem' : '0px'};
             margin-left: ${titleMx ? titleMx + 'rem' : '0px'};
             margin-right: ${titleMx ? titleMx + 'rem' : '0px'};
-            justify-content: ${titleAlign
-              ? textAlignment(titleAlign)
-              : 'flex-start'};
+            text-align: ${titleAlign ? textAlignment(titleAlign) : 'left'};
             font-size: ${titleSize ? titleSize + 'rem' : '2rem'};
             text-transform: capitalize;
             font-weight: ${titleWeight ? titleWeight : '700'};

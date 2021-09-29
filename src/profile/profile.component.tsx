@@ -32,7 +32,7 @@ export const Profile: React.FC<BadgeProps> = ({
     if (radius > 0) {
       return radius + 'rem';
     } else {
-      return '0.01rem';
+      return '0rem';
     }
   };
 

@@ -13,6 +13,19 @@ export interface FlexProps {
   height?: number;
 }
 
+const handleAlignment = (direction: string) => {
+  switch (direction) {
+    case 'start':
+      return 'flex-start';
+    case 'center':
+      return 'center';
+    case 'end':
+      return 'flex-end';
+    default:
+      return null;
+  }
+};
+
 export const Flex: React.FC<FlexProps> = ({
   children,
   spacing = 0,
@@ -24,18 +37,6 @@ export const Flex: React.FC<FlexProps> = ({
   width = 'auto',
   height = 'auto',
 }) => {
-  const handleAlignment = (direction: string) => {
-    if (direction === 'start') {
-      return 'flex-start';
-    } else if (direction === 'center') {
-      return 'center';
-    } else if (direction === 'end') {
-      return 'flex-end';
-    } else {
-      return null;
-    }
-  };
-
   return (
     <div
       className={css`
@@ -72,19 +73,6 @@ export const FlexCol: React.FC<FlexProps> = ({
   width = 'auto',
   height = 'auto',
 }) => {
-  const handleAlignment = (direction: string) => {
-    if (direction === 'start') {
-      return 'flex-start';
-    } else if (direction === 'center') {
-      return 'center';
-    } else if (direction === 'end') {
-      return 'flex-end';
-    } else if (direction === 'between') {
-      return 'space-between';
-    } else {
-      return null;
-    }
-  };
   return (
     <div
       className={css`
@@ -136,19 +124,6 @@ export const Grid: React.FC<GridProps> = ({
   width = 'auto',
   height = 'auto',
 }) => {
-  const handleAlignment = (direction: string) => {
-    if (direction === 'start') {
-      return 'flex-start';
-    } else if (direction === 'center') {
-      return 'center';
-    } else if (direction === 'end') {
-      return 'flex-end';
-    } else if (direction === 'between') {
-      return 'space-between';
-    } else {
-      return null;
-    }
-  };
   return (
     <div
       className={css`
