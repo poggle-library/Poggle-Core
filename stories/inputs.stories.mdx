@@ -10,7 +10,100 @@ import { Button  } from "../src";
     control: {
       type: "text"
     },
-    description:"test......"
+    description:"This is where you can enter your button text or custom code if you choose. For example, to add an icon with text."
+  },
+  customProps:{
+    description: "Use this property if you'd like to add custom CSS to this component."
+  },
+  Mx: {
+    control: {
+      type: "range",
+    },
+    description:"Use this variable to add margin across the horizontal axis."
+  },
+  My: {
+    control: {
+      type: "range",
+    },
+    description:"Use this variable to add margin across the vertical axis."
+  },
+  Px: {
+    control: {
+      type: "range",
+    },
+    description:"Use this variable to add padding across the horizontal axis."
+  },
+  Py: {
+    control: {
+      type: "range",
+    },
+    description:"Use this variable to add padding across the vertical axis."
+  },
+  btnShadow:{
+    options: ["True", "false"],
+    control: { type: "boolean"},
+    description: "If this variable is true the button will had a shadow. By default, this is set to true."
+  },
+  btnRadius:{
+    control: {
+      type:"range",
+    },
+    description:"Use this variable to add a border radius to the button. This is input using rems."
+  },
+  btnBgColor: {
+    control: {
+      type: "color",
+    },
+    description:"Use this to set the background color of the button."
+  }
+  ,
+  btnTxtColor: {
+    control: {
+      type: "color",
+    },
+    description:"Use this to set the color of the button text."
+  },
+  btnFont: {
+    control: {
+      type: "text",
+    },
+    description: "Use this vairable to set a custom font for this button. By default it inherits off the font set by your CSS."
+  },
+  btnFNSize:{
+    control: {
+      type:"range",
+    },
+    description:"Use this variable increase the font size of your text."
+  },
+  btnWeight:{
+    options: ["100", "200", "300", "400", "500", "600", "700"],
+    control: { type: 'inline-radio'},
+    description:"Use this variable set the font weight of your text.",
+  },
+  btnBorder: {
+    control: {
+      type: "color",
+    },
+    description:"Use this variable set a button border & it's colour.",
+  },
+  btnHover:{
+    options: ["true", "false"],
+    control: {
+      type: "boolean",
+    },
+    description:"Use this variable enable a hover effect for your button",
+  },
+  btnHoverBgColor: {
+    control: {
+      type: "color",
+    },
+    description:"Use this variable change the background color of your button on hover.",
+  },
+  btnHoverTxtColor: {
+    control: {
+      type: "color",
+    },
+    description:"Use this variable change the background color of your button on hover.",
   },
 }}/>
 
@@ -28,7 +121,10 @@ Poggle comes with a lot of pre-designed input buttons, fields and features that 
 </Story>
 
 # Basic Button
-Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec sollicitudin molestie malesuada.
+Poggle has its version of a basic button, which is simply text and padding. Unlike other libraries our intention is to give the customisation freedom entirely to the user. The properties that these buttons
+use are simple and easy to set up.
+
+Let's have a look at a button with no properties:
 
 <Canvas>
   <Button>Read More</Button>
@@ -40,7 +136,7 @@ Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arc
 Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla porttitor accumsan tincidunt.
 
 <Canvas>
-  <div></div>
+  <Button btnHover={true} btnHoverBgColor={"red"}>Hover Over Me!</Button>
 </Canvas>
 
 <br/><br/>

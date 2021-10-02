@@ -13,7 +13,7 @@ export interface inputProps {
   customProps?: any;
   btnHover?: boolean;
   btnHoverBgColor?: string;
-  btnHoverTextColor?: string;
+  btnHoverTxtColor?: string;
   btnRadius?: number;
   btnBorder?: string;
   btnShadow?: boolean;
@@ -41,6 +41,9 @@ export const Button: React.FC<inputProps> = ({
   btnWeight = 600,
   btnFont = 'inherit',
   onClick,
+  btnHover = false,
+  btnHoverBgColor,
+  btnHoverTxtColor,
 }) => {
   return (
     <button
@@ -64,6 +67,13 @@ export const Button: React.FC<inputProps> = ({
         box-shadow: ${btnShadow
           ? '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
           : ''};
+
+        &:hover {
+          background-color: ${btnHover && btnHoverBgColor
+            ? btnHoverBgColor
+            : Blue['500']};
+          color: ${btnHover && btnHoverTxtColor ? btnHoverTxtColor : White};
+        }
 
         ${customProps && customProps}
       `}
