@@ -1,5 +1,5 @@
 import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
-import { Button  } from "../src";
+import { Button, Input  } from "../src";
 
 <Meta title="Components/Inputs" component={Button}  argTypes={{
   onClick: {
@@ -108,6 +108,7 @@ import { Button  } from "../src";
 }}/>
 
 export const Template = (args) => <Button {...args}/>;
+export const Template2 = (args) => <Input {...args}/>;
 
 <Story name="Introduction" args={{}}>
 </Story>
@@ -133,7 +134,7 @@ Let's have a look at a button with no properties:
 <br/><br/>
 
 # Hover Effects
-Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla porttitor accumsan tincidunt.
+Like other components you can easily add your own custom hover effects. First enable `btnHover` then change the `btnHoverBgColor` and/or `btnHoverTxtColor`.
 
 <Canvas>
   <Button btnHover={true} btnHoverBgColor={"red"}>Hover Over Me!</Button>
@@ -142,7 +143,7 @@ Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus 
 <br/><br/>
 
 # Create A Button
-Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla porttitor accumsan tincidunt.
+Give it a go for yourself, it's dead simple.
 
 <Canvas>
   <Story name="Create A Button" args={{}}>
@@ -153,3 +154,12 @@ Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus 
 <ArgsTable story="Create A Button" />
 
 <br/><br/>
+
+<Story name="Create An Input" args={{}}>
+</Story>
+
+# Input Boxes - UNDER CONSTRUCTION
+
+<Canvas>
+  <Input type="text"/>
+</Canvas>

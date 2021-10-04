@@ -4,8 +4,8 @@ import { css } from '@emotion/css';
 // @ts-ignore
 import { Blue, White } from '../index';
 
-export interface inputProps {
-  children: React.ReactChild;
+export interface buttonProps {
+  children?: React.ReactChild;
   Mx?: number;
   My?: number;
   Px?: number;
@@ -25,7 +25,7 @@ export interface inputProps {
   onClick?: any;
 }
 
-export const Button: React.FC<inputProps> = ({
+export const Button: React.FC<buttonProps> = ({
   children,
   Mx = 0,
   My = 0,
@@ -75,7 +75,7 @@ export const Button: React.FC<inputProps> = ({
           color: ${btnHover && btnHoverTxtColor ? btnHoverTxtColor : White};
         }
 
-        ${customProps && customProps}
+        ${customProps}
       `}
       onClick={onClick}
     >
@@ -84,8 +84,22 @@ export const Button: React.FC<inputProps> = ({
   );
 };
 
-export interface inputProps {}
+export interface inputProps {
+  children?: any;
+  type: string;
+}
 
-export const Input: React.FC<inputProps> = ({}) => {
-  return <div>h1</div>;
+export const Input: React.FC<inputProps> = ({ children, type = 'text' }) => {
+  return (
+    <input
+      type={type}
+      className={css`
+        padding: 10px;
+        width: 200px;
+        border-radius: 10px;
+      `}
+    >
+      {children}
+    </input>
+  );
 };
