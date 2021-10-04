@@ -21,9 +21,6 @@
     "dev": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "publishConfig": {
-    "registry": "git://github.com/poggle-library/Poggle-Core"
-  },
   "peerDependencies": {
     "react": ">=16"
   },
