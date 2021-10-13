@@ -1,7 +1,7 @@
 import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
-import { Button, Input  } from "../src";
+import { Button, TextInput, Radio, TextArea, CheckBox, FlexCol, Select  } from "../src";
 
-<Meta title="Components/Inputs" component={Button}  argTypes={{
+<Meta title="Components/Inputs" component={Button} subcomponents={{ TextInput,TextArea, Radio, CheckBox, Select }}  argTypes={{
   onClick: {
     action: 'clicked',
     description: "Use this property if you'd like to set an action for the button."
@@ -108,7 +108,7 @@ import { Button, Input  } from "../src";
 }}/>
 
 export const Template = (args) => <Button {...args}/>;
-export const Template2 = (args) => <Input {...args}/>;
+export const Template2 = (args) => <TextInput {...args}/>;
 
 <Story name="Introduction" args={{}}>
 </Story>
@@ -142,24 +142,75 @@ Like other components you can easily add your own custom hover effects. First en
 
 <br/><br/>
 
-# Create A Button
-Give it a go for yourself, it's dead simple.
-
-<Canvas>
-  <Story name="Create A Button" args={{}}>
-    {Template.bind({})}
-  </Story>
-</Canvas>
-
-<ArgsTable story="Create A Button" />
-
-<br/><br/>
-
 <Story name="Create An Input" args={{}}>
 </Story>
 
-# Input Boxes - UNDER CONSTRUCTION
+# Input Boxes
+Input boxes are the quintessential hallmark of any project, no matter what you work on you'll eventually need to use input boxes. By default, the input box will have `autoFocus` set to false and it will have predetermined padding and length.
+Like all things in Poggle you can adjust these settings.
 
 <Canvas>
-  <Input type="text"/>
+  <TextInput placeholder={"This is an input box!"}/>
 </Canvas>
+
+<br/><br/>
+
+<Story name="Create A Text Area Input" args={{}}> </Story>
+
+# Text Area
+A text area is a really simple component that you can add to your project. By default the text area has 4 `rows` and 10 `cols`. You
+<Canvas>
+  <TextArea />
+</Canvas>
+
+<br/><br/>
+
+<Story name="Create Radio Input" args={{}}> </Story>
+
+# Radio Button Inputs
+Radio buttons are an important asset in form creation. Let's have a look at how the radio buttons work:
+
+<Canvas>
+  <FlexCol>
+    <Radio type="radio" title={"This is a radio button!"} />
+    <Radio type="radio" title={"This is a radio button checked by default!"} checked={true} />
+  </FlexCol>
+</Canvas>
+
+<br/><br/>
+
+<Story name="Create CheckBox Input" args={{}}> </Story>
+
+# Check Box Inputs
+These wonderful things can be used for almost anything, not just to accept your terms of service!
+
+<Canvas>
+  <FlexCol>
+    <CheckBox title={"This is a check box!"} />
+    <CheckBox title={"This is a checkbox is checked by default!"} checked={true} />
+  </FlexCol>
+</Canvas>
+
+<br/><br/>
+
+<Story name="Create A Select Box Input" args={{}}> </Story>
+
+# Select Box Input - INDEV
+A select box allows your user to choose from predefined options. For this input to render you need to add atleast 1 select option via the `data` property.
+
+<Canvas>
+  <FlexCol>
+    <Select data={["red", "green", "blue"]} title={"colours"}/>
+  </FlexCol>
+</Canvas>
+
+
+<br/><br/>
+
+  <Story name="See All Inputs" args={{}}>
+</Story>
+
+# See All Input Properties
+We have a lot of different inputs, let's have a look at their properties.
+
+<ArgsTable story="See All Inputs" />
