@@ -1,5 +1,5 @@
 {
-  "version": "1.0.224",
+  "version": "1.0.225",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -61,11 +61,11 @@
   "devDependencies": {
     "@babel/core": "^7.15.5",
     "@size-limit/preset-small-lib": "^5.0.3",
-    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-info": "^5.3.21",
-    "@storybook/addon-links": "^6.3.8",
-    "@storybook/addons": "^6.3.8",
-    "@storybook/react": "^6.3.8",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/addons": "^6.3.12",
+    "@storybook/react": "^6.3.12",
     "@types/react": "^17.0.21",
     "@types/react-dom": "^17.0.9",
     "babel-loader": "^8.2.2",
