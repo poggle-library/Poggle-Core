@@ -160,7 +160,7 @@ Like all things in Poggle you can adjust these settings.
 # Text Area
 A text area is a really simple component that you can add to your project. By default the text area has 4 `rows` and 10 `cols`. You
 <Canvas>
-  <TextArea />
+  <TextArea placeholder={"Hello, this is a wonderful text area......."}/>
 </Canvas>
 
 <br/><br/>
@@ -195,12 +195,12 @@ These wonderful things can be used for almost anything, not just to accept your 
 
 <Story name="Create A Select Box Input" args={{}}> </Story>
 
-# Select Box Input - INDEV
+# Select Box Input
 A select box allows your user to choose from predefined options. For this input to render you need to add atleast 1 select option via the `data` property.
 
 <Canvas>
   <FlexCol>
-    <Select data={["red", "green", "blue"]} title={"colours"}/>
+    <Select data={["red", "green", "blue", "other"]} title={"Favourite Colour:"}/>
   </FlexCol>
 </Canvas>
 

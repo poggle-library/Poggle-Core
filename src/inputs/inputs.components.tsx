@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { css } from '@emotion/css';
 
 // @ts-ignore
-import { Blue, White, Black, Grey } from '../index';
+import { Blue, White, Black, Grey, Flex } from '../index';
 
 export interface buttonProps {
   children?: React.ReactChild;
@@ -90,17 +90,17 @@ export interface inputProps {
   Px?: number;
   Py?: number;
   customProps?: any;
-  btnHover?: boolean;
-  btnHoverBgColor?: string;
-  btnHoverTxtColor?: string;
-  btnRadius?: number;
-  btnBorder?: string;
-  btnShadow?: boolean;
-  btnTxtColor?: string;
-  btnBgColor?: string;
-  btnFont?: string;
-  btnFNSize?: number;
-  btnWeight?: number;
+  textHover?: boolean;
+  textHoverBgColor?: string;
+  textHoverTxtColor?: string;
+  textRadius?: number;
+  textBorder?: string;
+  textShadow?: boolean;
+  textTxtColor?: string;
+  textBgColor?: string;
+  textFont?: string;
+  textFNSize?: number;
+  textWeight?: number;
   width?: number;
   height?: number;
   onChange?: any;
@@ -114,17 +114,17 @@ export const TextInput: React.FC<inputProps> = ({
   Px = 2,
   Py = 1,
   customProps = null,
-  btnRadius = 0.5,
-  btnBorder = 'none',
-  btnTxtColor = Black,
-  btnBgColor = White,
-  btnShadow = true,
-  btnFNSize = 1.1,
-  btnWeight = 600,
-  btnFont = 'inherit',
-  btnHover = false,
-  btnHoverBgColor,
-  btnHoverTxtColor,
+  textRadius = 0.5,
+  textBorder = 'none',
+  textTxtColor = Black,
+  textBgColor = White,
+  textShadow = true,
+  textFNSize = 1.1,
+  textWeight = 600,
+  textFont = 'inherit',
+  textHover = false,
+  textHoverBgColor,
+  textHoverTxtColor,
   width,
   height,
   onChange,
@@ -145,23 +145,23 @@ export const TextInput: React.FC<inputProps> = ({
         padding-bottom: ${Py ? Py + 'rem' : 0};
         padding-left: ${Px ? Px + 'rem' : 0};
         padding-right: ${Px ? Px + 'rem' : 0};
-        border-radius: ${btnRadius ? btnRadius + 'rem' : 0};
-        border: ${btnBorder !== 'none' ? `1px solid ${btnBorder}` : 'none'};
-        color: ${btnTxtColor ? btnTxtColor : Black};
-        font-size: ${btnFNSize ? btnFNSize + 'rem' : '1rem'};
-        font-weight: ${btnWeight ? btnWeight : 400};
-        background-color: ${btnBgColor ? btnBgColor : White};
-        font-family: ${btnFont ? btnFont : 'inherit'};
+        border-radius: ${textRadius ? textRadius + 'rem' : 0};
+        border: ${textBorder !== 'none' ? `1px solid ${textBorder}` : 'none'};
+        color: ${textTxtColor ? textTxtColor : Black};
+        font-size: ${textFNSize ? textFNSize + 'rem' : '1rem'};
+        font-weight: ${textWeight ? textWeight : 400};
+        background-color: ${textBgColor ? textBgColor : White};
+        font-family: ${textFont ? textFont : 'inherit'};
         cursor: pointer;
-        box-shadow: ${btnShadow
+        box-shadow: ${textShadow
           ? '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
           : ''};
 
         &:hover {
-          background-color: ${btnHover && btnHoverBgColor
-            ? btnHoverBgColor
+          background-color: ${textHover && textHoverBgColor
+            ? textHoverBgColor
             : White};
-          color: ${btnHover && btnHoverTxtColor ? btnHoverTxtColor : Black};
+          color: ${textHover && textHoverTxtColor ? textHoverTxtColor : Black};
         }
 
         ${customProps}
@@ -181,17 +181,17 @@ export interface RadioProps {
   Px?: number;
   Py?: number;
   customProps?: any;
-  btnHover?: boolean;
-  btnHoverBgColor?: string;
-  btnHoverTxtColor?: string;
-  btnRadius?: number;
-  btnBorder?: string;
-  btnShadow?: boolean;
-  btnTxtColor?: string;
-  btnBgColor?: string;
-  btnFont?: string;
-  btnFNSize?: number;
-  btnWeight?: number;
+  radioHover?: boolean;
+  radioHoverBgColor?: string;
+  radioHoverTxtColor?: string;
+  radioRadius?: number;
+  radioBorder?: string;
+  radioShadow?: boolean;
+  radioTxtColor?: string;
+  radioBgColor?: string;
+  radioFont?: string;
+  radioFNSize?: number;
+  radioWeight?: number;
   width?: number;
   height?: number;
   gap?: number;
@@ -205,17 +205,17 @@ export const Radio: React.FC<RadioProps> = ({
   Px = 0,
   Py = 0.2,
   customProps = null,
-  btnRadius = 0.5,
-  btnBorder = 'none',
-  btnTxtColor = Grey['700'],
-  btnBgColor = White,
-  btnShadow = false,
-  btnFNSize = 1.1,
-  btnWeight = 400,
-  btnFont = 'inherit',
-  btnHover = false,
-  btnHoverBgColor,
-  btnHoverTxtColor,
+  radioRadius = 0.5,
+  radioBorder = 'none',
+  radioTxtColor = Grey['700'],
+  radioBgColor = White,
+  radioShadow = false,
+  radioFNSize = 1.1,
+  radioWeight = 400,
+  radioFont = 'inherit',
+  radioHover = false,
+  radioHoverBgColor,
+  radioHoverTxtColor,
   width,
   height,
   gap = 1,
@@ -237,17 +237,17 @@ export const Radio: React.FC<RadioProps> = ({
         padding-bottom: ${Py ? Py + 'rem' : 0};
         padding-left: ${Px ? Px + 'rem' : 0};
         padding-right: ${Px ? Px + 'rem' : 0};
-        border-radius: ${btnRadius ? btnRadius + 'rem' : 0};
-        border: ${btnBorder !== 'none' ? `1px solid ${btnBorder}` : 'none'};
-        background-color: ${btnBgColor ? btnBgColor : White};
+        border-radius: ${radioRadius ? radioRadius + 'rem' : 0};
+        border: ${radioBorder !== 'none' ? `1px solid ${radioBorder}` : 'none'};
+        background-color: ${radioBgColor ? radioBgColor : White};
         cursor: pointer;
-        box-shadow: ${btnShadow
+        box-shadow: ${radioShadow
           ? '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
           : 'none'};
 
         &:hover {
-          background-color: ${btnHover && btnHoverBgColor
-            ? btnHoverBgColor
+          background-color: ${radioHover && radioHoverBgColor
+            ? radioHoverBgColor
             : White};
         }
       `}
@@ -264,13 +264,15 @@ export const Radio: React.FC<RadioProps> = ({
       <label
         htmlFor={title}
         className={css`
-          color: ${btnTxtColor ? btnTxtColor : Black};
-          font-size: ${btnFNSize ? btnFNSize + 'rem' : '1rem'};
-          font-weight: ${btnWeight ? btnWeight : 400};
-          font-family: ${btnFont ? btnFont : 'inherit'};
+          color: ${radioTxtColor ? radioTxtColor : Black};
+          font-size: ${radioFNSize ? radioFNSize + 'rem' : '1rem'};
+          font-weight: ${radioWeight ? radioWeight : 400};
+          font-family: ${radioFont ? radioFont : 'inherit'};
 
           &:hover {
-            color: ${btnHover && btnHoverTxtColor ? btnHoverTxtColor : Black};
+            color: ${radioHover && radioHoverTxtColor
+              ? radioHoverTxtColor
+              : Black};
           }
         `}
       >
@@ -286,21 +288,22 @@ export interface TextAreaProps {
   Px?: number;
   Py?: number;
   customProps?: any;
-  btnHover?: boolean;
-  btnHoverBgColor?: string;
-  btnHoverTxtColor?: string;
-  btnRadius?: number;
-  btnBorder?: string;
-  btnShadow?: boolean;
-  btnTxtColor?: string;
-  btnBgColor?: string;
-  btnFont?: string;
-  btnFNSize?: number;
-  btnWeight?: number;
+  textAreaHover?: boolean;
+  textAreaHoverBgColor?: string;
+  textAreaHoverTxtColor?: string;
+  textAreaRadius?: number;
+  textAreaBorder?: string;
+  textAreaShadow?: boolean;
+  textAreaTxtColor?: string;
+  textAreaBgColor?: string;
+  textAreaFont?: string;
+  textAreaFNSize?: number;
+  textAreaWeight?: number;
   width?: number;
   height?: number;
   rows?: number;
   cols?: number;
+  placeholder?: string;
 }
 
 export const TextArea: React.FC<TextAreaProps> = ({
@@ -309,21 +312,22 @@ export const TextArea: React.FC<TextAreaProps> = ({
   Px = 2,
   Py = 1,
   customProps = null,
-  btnRadius = 0.5,
-  btnBorder = 'none',
-  btnTxtColor = Black,
-  btnBgColor = White,
-  btnShadow = true,
-  btnFNSize = 1.1,
-  btnWeight = 600,
-  btnFont = 'inherit',
-  btnHover = false,
-  btnHoverBgColor,
-  btnHoverTxtColor,
+  textAreaRadius = 0.5,
+  textAreaBorder = 'none',
+  textAreaTxtColor = Black,
+  textAreaBgColor = White,
+  textAreaShadow = true,
+  textAreaFNSize = 1.1,
+  textAreaWeight = 600,
+  textAreaFont = 'inherit',
+  textAreaHover = false,
+  textAreaHoverBgColor,
+  textAreaHoverTxtColor,
   width,
   height,
   rows = 4,
   cols = 10,
+  placeholder,
 }) => {
   return (
     <textarea
@@ -340,27 +344,31 @@ export const TextArea: React.FC<TextAreaProps> = ({
         padding-bottom: ${Py ? Py + 'rem' : 0};
         padding-left: ${Px ? Px + 'rem' : 0};
         padding-right: ${Px ? Px + 'rem' : 0};
-        border-radius: ${btnRadius ? btnRadius + 'rem' : 0};
-        border: ${btnBorder !== 'none' ? `1px solid ${btnBorder}` : 'none'};
-        color: ${btnTxtColor ? btnTxtColor : Black};
-        font-size: ${btnFNSize ? btnFNSize + 'rem' : '1rem'};
-        font-weight: ${btnWeight ? btnWeight : 400};
-        background-color: ${btnBgColor ? btnBgColor : White};
-        font-family: ${btnFont ? btnFont : 'inherit'};
+        border-radius: ${textAreaRadius ? textAreaRadius + 'rem' : 0};
+        border: ${textAreaBorder !== 'none'
+          ? `1px solid ${textAreaBorder}`
+          : 'none'};
+        color: ${textAreaTxtColor ? textAreaTxtColor : Black};
+        font-size: ${textAreaFNSize ? textAreaFNSize + 'rem' : '1rem'};
+        font-weight: ${textAreaWeight ? textAreaWeight : 400};
+        background-color: ${textAreaBgColor ? textAreaBgColor : White};
+        font-family: ${textAreaFont ? textAreaFont : 'inherit'};
         cursor: pointer;
-        box-shadow: ${btnShadow
+        box-shadow: ${textAreaShadow
           ? '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
           : ''};
 
         &:hover {
-          background-color: ${btnHover && btnHoverBgColor
-            ? btnHoverBgColor
+          background-color: ${textAreaHover && textAreaHoverBgColor
+            ? textAreaHoverBgColor
             : White};
-          color: ${btnHover && btnHoverTxtColor ? btnHoverTxtColor : Black};
+          color: ${textAreaHover && textAreaHoverTxtColor
+            ? textAreaHoverTxtColor
+            : Black};
         }
-
         ${customProps}
       `}
+      placeholder={placeholder}
     />
   );
 };
@@ -373,17 +381,17 @@ export interface CheckBoxProps {
   Px?: number;
   Py?: number;
   customProps?: any;
-  btnHover?: boolean;
-  btnHoverBgColor?: string;
-  btnHoverTxtColor?: string;
-  btnRadius?: number;
-  btnBorder?: string;
-  btnShadow?: boolean;
-  btnTxtColor?: string;
-  btnBgColor?: string;
-  btnFont?: string;
-  btnFNSize?: number;
-  btnWeight?: number;
+  checkHover?: boolean;
+  checkHoverBgColor?: string;
+  checkHoverTxtColor?: string;
+  checkRadius?: number;
+  checkBorder?: string;
+  checkShadow?: boolean;
+  checkTxtColor?: string;
+  checkBgColor?: string;
+  checkFont?: string;
+  checkFNSize?: number;
+  checkWeight?: number;
   width?: number;
   height?: number;
   gap?: number;
@@ -397,17 +405,17 @@ export const CheckBox: React.FC<CheckBoxProps> = ({
   Px = 0,
   Py = 0.2,
   customProps = null,
-  btnRadius = 0.5,
-  btnBorder = 'none',
-  btnTxtColor = Grey['700'],
-  btnBgColor = White,
-  btnShadow = false,
-  btnFNSize = 1.1,
-  btnWeight = 400,
-  btnFont = 'inherit',
-  btnHover = false,
-  btnHoverBgColor,
-  btnHoverTxtColor,
+  checkRadius = 0.5,
+  checkBorder = 'none',
+  checkTxtColor = Grey['700'],
+  checkBgColor = White,
+  checkShadow = false,
+  checkFNSize = 1.1,
+  checkWeight = 400,
+  checkFont = 'inherit',
+  checkHover = false,
+  checkHoverBgColor,
+  checkHoverTxtColor,
   width,
   height,
   gap = 1,
@@ -429,17 +437,17 @@ export const CheckBox: React.FC<CheckBoxProps> = ({
         padding-bottom: ${Py ? Py + 'rem' : 0};
         padding-left: ${Px ? Px + 'rem' : 0};
         padding-right: ${Px ? Px + 'rem' : 0};
-        border-radius: ${btnRadius ? btnRadius + 'rem' : 0};
-        border: ${btnBorder !== 'none' ? `1px solid ${btnBorder}` : 'none'};
-        background-color: ${btnBgColor ? btnBgColor : White};
+        border-radius: ${checkRadius ? checkRadius + 'rem' : 0};
+        border: ${checkBorder !== 'none' ? `1px solid ${checkBorder}` : 'none'};
+        background-color: ${checkBgColor ? checkBgColor : White};
         cursor: pointer;
-        box-shadow: ${btnShadow
+        box-shadow: ${checkShadow
           ? '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
           : 'none'};
 
         &:hover {
-          background-color: ${btnHover && btnHoverBgColor
-            ? btnHoverBgColor
+          background-color: ${checkHover && checkHoverBgColor
+            ? checkHoverBgColor
             : White};
         }
       `}
@@ -456,13 +464,15 @@ export const CheckBox: React.FC<CheckBoxProps> = ({
       <label
         htmlFor={title}
         className={css`
-          color: ${btnTxtColor ? btnTxtColor : Black};
-          font-size: ${btnFNSize ? btnFNSize + 'rem' : '1rem'};
-          font-weight: ${btnWeight ? btnWeight : 400};
-          font-family: ${btnFont ? btnFont : 'inherit'};
+          color: ${checkTxtColor ? checkTxtColor : Black};
+          font-size: ${checkFNSize ? checkFNSize + 'rem' : '1rem'};
+          font-weight: ${checkWeight ? checkWeight : 400};
+          font-family: ${checkFont ? checkFont : 'inherit'};
 
           &:hover {
-            color: ${btnHover && btnHoverTxtColor ? btnHoverTxtColor : Black};
+            color: ${checkHover && checkHoverTxtColor
+              ? checkHoverTxtColor
+              : Black};
           }
         `}
       >
@@ -475,13 +485,79 @@ export const CheckBox: React.FC<CheckBoxProps> = ({
 export interface SelectProps {
   title?: string;
   data: Array<string>;
+  width?: number;
+  height?: number;
+  selectShadow?: boolean;
+  Mx?: number;
+  My?: number;
+  Px?: number;
+  Py?: number;
+  labelSize?: number;
+  labelColor?: string;
+  labelWeight?: number;
+  itemsGap?: number;
+  itemsAlign?: 'start' | 'center' | 'end' | 'between';
+  itemsJustify?: 'start' | 'center' | 'end' | 'between';
+  optionSize?: number;
+  optionWeight?: number;
 }
 
-export const Select: React.FC<SelectProps> = ({ title, data }) => {
+export const Select: React.FC<SelectProps> = ({
+  title,
+  data,
+  width = 10,
+  height = 'auto',
+  selectShadow = true,
+  Mx = 0,
+  My = 0,
+  Px = 1,
+  Py = 0.5,
+  itemsGap = 0.8,
+  labelSize = 1.2,
+  labelColor = Black,
+  labelWeight = 500,
+  itemsAlign = 'center',
+  itemsJustify = 'start',
+  optionSize = 1,
+  optionWeight = 400,
+}) => {
   return (
-    <div>
-      <label htmlFor={title}>{title}</label>
-      <select name={title} id={title}>
+    <Flex spacing={itemsGap} align={itemsAlign} justify={itemsJustify}>
+      <label
+        htmlFor={title}
+        className={css`
+          color: ${labelColor ? labelColor : Black};
+          font-size: ${labelSize ? labelSize + 'rem' : '2rem'};
+          font-weight: ${labelWeight ? labelWeight : 400};
+          text-transform: capitalize;
+        `}
+      >
+        {title}
+      </label>
+      <select
+        name={title}
+        id={title}
+        className={css`
+          width: ${width ? width + 'rem' : 5};
+          height: ${height ? height + 'rem' : 'auto'};
+          margin-top: ${My ? My + 'rem' : 0};
+          margin-bottom: ${My ? My + 'rem' : 0};
+          margin-left: ${Mx ? Mx + 'rem' : 0};
+          margin-right: ${Mx ? Mx + 'rem' : 0};
+          padding-top: ${Py ? Py + 'rem' : 0};
+          padding-bottom: ${Py ? Py + 'rem' : 0};
+          padding-left: ${Px ? Px + 'rem' : 0};
+          padding-right: ${Px ? Px + 'rem' : 0};
+          box-shadow: ${selectShadow
+            ? '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
+            : ''};
+          border: none;
+
+          font-size: ${optionSize ? optionSize + 'rem' : 1};
+          font-weight: ${optionWeight ? optionWeight : 400};
+          text-transform: capitalize;
+        `}
+      >
         {data.map((option, index) => {
           return (
             <option value={option} key={index}>
@@ -490,6 +566,6 @@ export const Select: React.FC<SelectProps> = ({ title, data }) => {
           );
         })}
       </select>
-    </div>
+    </Flex>
   );
 };
