@@ -1,84 +1,39 @@
 {
-  "version": "1.0.225",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
+  "name": "poggle",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why",
-    "dev": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
-  "peerDependencies": {
-    "react": ">=16"
+  "dependencies": {
+    "next": "14.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "tsdx lint"
-    }
-  },
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
-  },
-  "name": "@poggle/core",
-  "keywords": [
-    "React",
-    "TypeScript",
-    "React Components",
-    "React Component Library",
-    "React-Components",
-    "React-Component-Library",
-    "Javascript",
-    "@Poggle"
-  ],
-  "author": "Nick Morgan",
-  "module": "dist/core.esm.js",
-  "size-limit": [
-    {
-      "path": "dist/core.cjs.production.min.js",
-      "limit": "10 KB"
-    },
-    {
-      "path": "dist/core.esm.js",
-      "limit": "10 KB"
-    }
-  ],
   "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@size-limit/preset-small-lib": "^5.0.3",
-    "@storybook/addon-essentials": "^6.3.12",
-    "@storybook/addon-info": "^5.3.21",
-    "@storybook/addon-links": "^6.3.12",
-    "@storybook/addons": "^6.3.12",
-    "@storybook/react": "^6.3.12",
-    "@types/react": "^17.0.21",
-    "@types/react-dom": "^17.0.9",
-    "babel-loader": "^8.2.2",
-    "husky": "^7.0.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-is": "^17.0.2",
-    "size-limit": "^5.0.3",
-    "storybook-dark-mode": "^1.0.8",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.3.1",
-    "typescript": "^4.4.3",
-    "@emotion/css": "^11.1.3",
-    "prettier": "^2.4.1"
+    "@storybook/addon-essentials": "^7.5.2",
+    "@storybook/addon-interactions": "^7.5.2",
+    "@storybook/addon-links": "^7.5.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.5.2",
+    "@storybook/nextjs": "^7.5.2",
+    "@storybook/react": "^7.5.2",
+    "@storybook/testing-library": "^0.2.2",
+    "@types/node": "^20.8.9",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.52.0",
+    "eslint-config-next": "14.0.1",
+    "eslint-plugin-storybook": "^0.6.15",
+    "postcss": "^8.4.31",
+    "storybook": "^7.5.2",
+    "tailwindcss": "^3.3.5",
+    "typescript": "^5.2.2"
   }
 }
